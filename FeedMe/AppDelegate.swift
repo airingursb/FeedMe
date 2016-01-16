@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // 初始化SMS-SDK
+        SMS_SDK.registerApp("add13f67362b", withSecret: "89afbf00747da0a04451d8691f1a35a0")
+        
+        // 关闭访问通讯录
+        SMS_SDK.enableAppContactFriends(false)
         return true
     }
 

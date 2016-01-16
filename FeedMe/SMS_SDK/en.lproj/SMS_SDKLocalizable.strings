@@ -1,0 +1,47 @@
+/*
+ SMS_SDKLocalizable.strings
+ SMS_SDK
+ 
+ Created by 刘 靖煌 on 2/2/15.
+ Copyright (c) 2015 掌淘科技. All rights reserved.
+ */
+
+///#begin en
+/**
+ *	@brief	Error code，If it is you call the API, you should see the error code table, if it is an HTTP error, this attribute indicates the HTTP error code.
+ ErrorCode	 Error description                             Remarks
+ 511	     Invalid request 	                           The request cannot be identified
+ 512	     Forbidden	                                   Server access denied, or refused to operate
+ 513	     Invalid Appkey	                               Requested Appkey is forbidden or not exsit
+ 514	     Permission denied	                           No permission to execute the request
+ 515	     Server Error	                               Server Error
+ 516	     Illegal request	                           Server does not support the function of the client request
+ 517	     Missing Params	                               The request necessary params are missing or damaged
+ 518	     Invalid phone number	                       Request of the user mobile phone number format is not correct (including cell phone area code)
+ 519	     Request validation exceed the limit	       Request to send verification code beyond the limit (limitation of each day, app, device, carrier)
+ 520	     Verification code error                 	   Verification code error
+ 521	     Invalid token	                               The token of request is invalid or illegal
+ 522	     Invalid duid	                               The requested duid illegal or invalid
+ 523	     Verified	                                   Request to verify phone number has been verified
+ 524	     High frequency of verification code request   High frequency of verification code request
+ 525	     Invalid signature	                           Need signature verification
+ 526	     Insufficient balance	                       Insufficient balance
+ */
+///#end
+
+"511description" = "Invalid request";
+"512description" = "Forbidden";
+"513description" = "Invalid Appkey";
+"514description" = "Permission denied";
+"515description" = "Server Error";
+"516description" = "Illegal request";
+"517description" = "Missing Params";
+"518description" = "Invalid phone number";
+"519description" = "Request validation exceed the limit";
+"520description" = "Verification code error";
+"521description" = "Invalid token";
+"522description" = "Invalid duid";
+"523description" = "Verified";
+"524description" = "High frequency of verification code request";
+"525description" = "Invalid signature";
+"526description" = "Insufficient balance";

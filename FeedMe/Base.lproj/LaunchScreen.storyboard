@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,12 +17,76 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="uY3-qY-rVp">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FeedMe" translatesAutoresizingMaskIntoConstraints="NO" id="WUx-OL-WGJ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="CbM-wB-37E"/>
+                                    <constraint firstAttribute="height" constant="47" id="XMb-3x-d31"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="CbM-wB-37E"/>
+                                        <exclude reference="XMb-3x-d31"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="CbM-wB-37E"/>
+                                        <include reference="XMb-3x-d31"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WUx-OL-WGJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1Mp-YK-NJQ"/>
+                            <constraint firstItem="WUx-OL-WGJ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="40" id="2aI-dY-Xnf"/>
+                            <constraint firstItem="uY3-qY-rVp" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="HL8-5R-kvo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uY3-qY-rVp" secondAttribute="trailing" constant="-20" id="M6D-kl-LkF"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="uY3-qY-rVp" secondAttribute="bottom" id="RA0-jw-AfU"/>
+                            <constraint firstItem="uY3-qY-rVp" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="uDn-3o-4eO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="uY3-qY-rVp"/>
+                                <exclude reference="WUx-OL-WGJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="HL8-5R-kvo"/>
+                                <exclude reference="M6D-kl-LkF"/>
+                                <exclude reference="uDn-3o-4eO"/>
+                                <exclude reference="1Mp-YK-NJQ"/>
+                                <exclude reference="2aI-dY-Xnf"/>
+                                <exclude reference="RA0-jw-AfU"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="uY3-qY-rVp"/>
+                                <include reference="WUx-OL-WGJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="HL8-5R-kvo"/>
+                                <include reference="M6D-kl-LkF"/>
+                                <include reference="uDn-3o-4eO"/>
+                                <include reference="1Mp-YK-NJQ"/>
+                                <include reference="2aI-dY-Xnf"/>
+                                <include reference="RA0-jw-AfU"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FeedMe" width="142" height="29"/>
+        <image name="background-1" width="375" height="667"/>
+    </resources>
 </document>

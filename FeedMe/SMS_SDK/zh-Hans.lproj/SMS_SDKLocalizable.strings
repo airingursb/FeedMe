@@ -1,0 +1,58 @@
+/*
+ SMS_SDKLocalizable.strings
+ SMS_SDK
+ 
+ Created by 刘 靖煌 on 2/2/15.
+ Copyright (c) 2015 掌淘科技. All rights reserved.
+ */
+
+
+///#begin zh-cn
+/**
+ *	@brief	错误代码，如果为调用API出错则应该参考API错误码对照表。错误码对照表如下：
+ 错误码	错误描述	         备注
+ 511	无效请求	         客户端请求不能被识别。
+ 512	禁止访问	         服务器拒绝访问，或者拒绝操作
+ 513	Appkey无效	     请求Appkey不存在或被禁用。
+ 514	权限不足	         无权执行该请求
+ 515	服务器内部错误	     服务器内部错误
+ 516	非法请求	         服务器不支持客户端的请求。
+ 517	参数缺损	         缺少必要的请求参数
+ 518	非法手机号	     请求中用户的手机号格式不正确（包括手机的区号）
+ 519	请求验证超上限	     请求发送验证码次数超出限制（如每日、每APP、单台设备以及运营商等都有各种发送验证码的上限）
+ 520	验证码错误	     无效验证码。
+ 521	token无效	     请求的令牌无效或者非法
+ 522	duid无效	         请求的duid非法或者无效
+ 523	已验证	         请求验证的手机号码已经被验证。
+ 524	请求过于频繁	     客户端请求发送短信验证过于频繁
+ 525	签名无效	         需要签名检验
+ 526	余额不足	         余额不足
+ */
+///#end
+
+"511description" = "无效请求";
+"512description" = "禁止访问";
+"513description" = "Appkey无效";
+"514description" = "权限不足";
+"515description" = "服务器内部错误";
+"516description" = "非法请求";
+"517description" = "参数缺损";
+"518description" = "非法手机号";
+"519description" = "请求验证超上限";
+"520description" = "验证码错误";
+"521description" = "token无效";
+"522description" = "duid无效";
+"523description" = "已验证";
+"524description" = "请求过于频繁";
+"525description" = "签名无效";
+"526description" = "余额不足";
+
+
+
+
+
+
+
+
+
+
