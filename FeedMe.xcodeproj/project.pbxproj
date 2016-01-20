@@ -16,6 +16,8 @@
 		9D29D9A31C4A7A1E006931F2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A21C4A7A1E006931F2 /* MessageUI.framework */; };
 		9D29D9A51C4A7A31006931F2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A41C4A7A31006931F2 /* libz.tbd */; };
 		9D29D9A71C4A7A3F006931F2 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A61C4A7A3F006931F2 /* libicucore.tbd */; };
+		9D6C1E961C4F1F1D00A71384 /* MainWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */; };
+		9D6C1E981C4F650C00A71384 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C1E971C4F650C00A71384 /* LearnViewController.swift */; };
 		9D77938E1C49EC410084D151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77938D1C49EC410084D151 /* AppDelegate.swift */; };
 		9D7793901C49EC410084D151 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77938F1C49EC410084D151 /* ViewController.swift */; };
 		9D7793931C49EC410084D151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7793911C49EC410084D151 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		9D29D9A21C4A7A1E006931F2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9D29D9A41C4A7A31006931F2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9D29D9A61C4A7A3F006931F2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainWordViewController.swift; path = FeedMe/MainWordViewController.swift; sourceTree = "<group>"; };
+		9D6C1E971C4F650C00A71384 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LearnViewController.swift; path = FeedMe/LearnViewController.swift; sourceTree = "<group>"; };
 		9D77938A1C49EC410084D151 /* FeedMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D77938D1C49EC410084D151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D77938F1C49EC410084D151 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 			children = (
 				9D29D9931C4A4750006931F2 /* LoginViewController.swift */,
 				9D29D9911C4A4726006931F2 /* RegisterViewController.swift */,
+				9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */,
+				9D6C1E971C4F650C00A71384 /* LearnViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -270,6 +276,8 @@
 				9D77938E1C49EC410084D151 /* AppDelegate.swift in Sources */,
 				9D29D9941C4A4750006931F2 /* LoginViewController.swift in Sources */,
 				9D29D9921C4A4726006931F2 /* RegisterViewController.swift in Sources */,
+				9D6C1E961C4F1F1D00A71384 /* MainWordViewController.swift in Sources */,
+				9D6C1E981C4F650C00A71384 /* LearnViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
