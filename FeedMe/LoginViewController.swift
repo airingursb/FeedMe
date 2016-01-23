@@ -69,24 +69,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @IBAction func loginByQQ() {
-        ShareSDK.authorize(SSDKPlatformType.TypeQQ, settings: nil, onStateChanged: { (state : SSDKResponseState, user : SSDKUser!, error : NSError!) -> Void in
-            
-            switch state{
-                
-            case SSDKResponseState.Success: print("授权成功,用户信息为\(user)\n ----- 授权凭证为\(user.credential)")
-            case SSDKResponseState.Fail:    print("授权失败,错误描述:\(error)")
-            case SSDKResponseState.Cancel:  print("操作取消")
-                
-            default:
-                break
-            }
-        })
-    }
-    
-    @IBAction func loginByWechat() {
-        
-    }
+//    @IBAction func loginByQQ() {
+//        ShareSDK.authorize(SSDKPlatformType.TypeQQ, settings: nil, onStateChanged: { (state : SSDKResponseState, user : SSDKUser!, error : NSError!) -> Void in
+//            
+//            switch state{
+//                
+//            case SSDKResponseState.Success: print("授权成功,用户信息为\(user)\n ----- 授权凭证为\(user.credential)")
+//            case SSDKResponseState.Fail:    print("授权失败,错误描述:\(error)")
+//            case SSDKResponseState.Cancel:  print("操作取消")
+//                
+//            default:
+//                break
+//            }
+//        })
+//    }
+//    
+//    @IBAction func loginByWechat() {
+//        
+//    }
     
     func verify(){
         if(self.txtUserAccount.text == "" || self.txtUserPassword.text == "") {
