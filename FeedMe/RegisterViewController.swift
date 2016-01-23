@@ -12,12 +12,19 @@ import JSONJoy
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
     
-    struct Result : JSONJoy {
+    /*
+    "result": 1,
+    "userId": 3
+    */
+    
+    struct User : JSONJoy {
         var result: Int?
+        var userId: Int?
         init() {
         }
         init(_ decoder: JSONDecoder) {
             result = decoder["result"].integer
+            userId = decoder["userId"].integer
         }
     }
     
@@ -31,9 +38,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         SMS_SDK.getVerificationCodeBySMSWithPhone(txtUserPhone.text, zone: "86"){
             (error: SMS_SDKError!) in
             if (error == nil) {
-                print("请求成功，请等待短信！")
+                print("Request Succeed! Wait the Message.")
             } else {
-                print("请求失败")
+                print("Request Failed!")
             }
         }
     }
@@ -45,13 +52,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 print("验证成功")
                 let request = HTTPTask()
                 let params: Dictionary<String,AnyObject> = ["userAccount": self.txtUserPhone.text!, "userPassword": self.txtPassword.text!]
-                    request.POST("http://localhost:8080/usay/register", parameters: params, completionHandler: {(response: HTTPResponse) in
+                    request.POST("http://121.42.195.113/feedme/register.action", parameters: params, completionHandler: {(response: HTTPResponse) in
                     if let res: AnyObject = response.responseObject {
-                        let json = Result(JSONDecoder(res))
+                        let json = User(JSONDecoder(res))
                         print("result: \(json.result!)")
                         if (json.result! == 1) {
                             print("注册成功")
-                            //self.performSegueWithIdentifier("RegisterSegue", sender: self)
+                            self.performSegueWithIdentifier("RegisterSegue", sender: self)
                         } else {
                             print("注册失败")
                         }

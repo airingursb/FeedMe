@@ -19,9 +19,12 @@ class MainWordViewController: UIViewController {
     @IBOutlet weak var lblLearnedWord: UILabel!
     @IBOutlet weak var lblMasterWord: UILabel!
     
+    var userId:Int = 0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         let mainColor = UIColor(red: 0.25, green: 0.54, blue: 0.99, alpha: 1)
         self.navigationController?.navigationBar.barTintColor = mainColor
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -30,7 +33,7 @@ class MainWordViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as? [String : AnyObject]
         
         // 定义所有子页面返回按钮的名称
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }
     
     override func didReceiveMemoryWarning() {
