@@ -9,6 +9,7 @@
 import UIKit
 import SwiftHTTP
 import JSONJoy
+import CoreData
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -22,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     "userPoint": 0
     */
     
-    struct User : JSONJoy {
+    struct Jsons : JSONJoy {
         var result: Int?
         var userId: Int?
         var userAccount: String?
@@ -69,24 +70,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    @IBAction func loginByQQ() {
-//        ShareSDK.authorize(SSDKPlatformType.TypeQQ, settings: nil, onStateChanged: { (state : SSDKResponseState, user : SSDKUser!, error : NSError!) -> Void in
-//            
-//            switch state{
-//                
-//            case SSDKResponseState.Success: print("授权成功,用户信息为\(user)\n ----- 授权凭证为\(user.credential)")
-//            case SSDKResponseState.Fail:    print("授权失败,错误描述:\(error)")
-//            case SSDKResponseState.Cancel:  print("操作取消")
-//                
-//            default:
-//                break
-//            }
-//        })
-//    }
-//    
-//    @IBAction func loginByWechat() {
-//        
-//    }
+    @IBAction func loginByQQ() {
+        ShareSDK.authorize(SSDKPlatformType.TypeQQ, settings: nil, onStateChanged: { (state : SSDKResponseState, user : SSDKUser!, error : NSError!) -> Void in
+            
+            switch state{
+                
+            case SSDKResponseState.Success: print("授权成功,用户信息为\(user)\n ----- 授权凭证为\(user.credential)")
+            case SSDKResponseState.Fail:    print("授权失败,错误描述:\(error)")
+            case SSDKResponseState.Cancel:  print("操作取消")
+                
+            default:
+                break
+            }
+        })
+    }
+    
+    @IBAction func loginByWechat() {
+    }
     
     func verify(){
         if(self.txtUserAccount.text == "" || self.txtUserPassword.text == "") {
@@ -102,7 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let params: Dictionary<String,AnyObject> = ["userAccount": txtUserAccount.text!, "userPassword": txtUserPassword.text!]
         request.POST("http://121.42.195.113/feedme/login.action", parameters: params, completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
-                let user = User(JSONDecoder(res))
+                let user = Jsons(JSONDecoder(res))
                 print("result:\(user.result!)\nuserId:\(user.userId!)\nuserAccount:\(user.userAccount!)\nuserName:\(user.userName!)\nuserHead:\(user.userHead!)\nuserCreateTime:\(user.userCreateTime!)\nuserPoint:\(user.userPoint!)")
                 if (user.result! == 1) {
                     self.userId = user.userId!
@@ -124,7 +124,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //获取管理的数据上下文 对象
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        
+        //创建User对象
+        let user = NSEntityDescription.insertNewObjectForEntityForName("User",
+            inManagedObjectContext: context) as! User
+        
+        //对象赋值
+        user.name = "airing"
+        user.age = 12
+        
+        do {
+            try context.save()
+            print("保存成功！")
+        } catch {
+            fatalError("不能保存：\(error)")
+        }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

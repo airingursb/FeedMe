@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainWordViewController: UIViewController {
     
@@ -34,6 +35,41 @@ class MainWordViewController: UIViewController {
         
         // 定义所有子页面返回按钮的名称
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
+        
+        
+        //获取管理的数据上下文 对象
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        
+        //声明数据的请求
+        let fetchRequest:NSFetchRequest = NSFetchRequest()
+        fetchRequest.fetchLimit = 10 //限定查询结果的数量
+        fetchRequest.fetchOffset = 0 //查询的偏移量
+        
+        //声明一个实体结构
+        let entity:NSEntityDescription? = NSEntityDescription.entityForName("User",
+            inManagedObjectContext: context)
+        //设置数据请求的实体结构
+        fetchRequest.entity = entity
+        
+        //设置查询条件
+        let predicate = NSPredicate(format: "age= '12' ", "")
+        fetchRequest.predicate = predicate
+        
+        //查询操作
+        do {
+            let fetchedObjects:[AnyObject]? = try context.executeFetchRequest(fetchRequest)
+            
+            //遍历查询的结果
+            for info:User in fetchedObjects as! [User]{
+                print("name=\(info.name)")
+                print("age=\(info.age)")
+            }
+        }
+        catch {
+            fatalError("不能保存：\(error)")
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -241,9 +241,56 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzj-k2-HSb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="r1a-E7-s9i"/>
+                                    <constraint firstAttribute="width" constant="32" id="ror-SC-SVS"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="icon_qq"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="r1a-E7-s9i"/>
+                                        <exclude reference="ror-SC-SVS"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="r1a-E7-s9i"/>
+                                        <include reference="ror-SC-SVS"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="loginByQQ" destination="BYZ-38-t0r" eventType="touchUpInside" id="jr2-O6-nSw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eV7-dA-h7m">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="6Sr-oJ-60V"/>
+                                    <constraint firstAttribute="height" constant="32" id="EPa-f8-enk"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="icon_wechat"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6Sr-oJ-60V"/>
+                                        <exclude reference="EPa-f8-enk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6Sr-oJ-60V"/>
+                                        <include reference="EPa-f8-enk"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="loginByWechat" destination="BYZ-38-t0r" eventType="touchUpInside" id="ed7-SX-fEX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ALA-jy-4Ce" firstAttribute="top" secondItem="eV7-dA-h7m" secondAttribute="bottom" constant="8" id="3Zv-L8-hgu"/>
                             <constraint firstItem="Sww-2h-CWi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="116" id="5rH-vP-Q6L"/>
                             <constraint firstItem="wvh-Ny-lPj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9kH-Qd-OaF"/>
                             <constraint firstItem="3tW-H0-ynG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="A8A-OS-Drz"/>
@@ -264,9 +311,12 @@
                                 <variation key="widthClass=compact" constant="77"/>
                             </constraint>
                             <constraint firstItem="3tW-H0-ynG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HtW-ij-WzM"/>
-                            <constraint firstItem="ALA-jy-4Ce" firstAttribute="top" secondItem="wvh-Ny-lPj" secondAttribute="bottom" constant="9" id="LJr-Ed-aZv"/>
+                            <constraint firstItem="wvh-Ny-lPj" firstAttribute="top" secondItem="MSI-ng-mtN" secondAttribute="bottom" constant="22" id="Mzn-lJ-JbH"/>
                             <constraint firstItem="V3M-Gn-Fkj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NGA-xd-STg">
                                 <variation key="widthClass=compact" constant="17.5"/>
+                            </constraint>
+                            <constraint firstItem="eV7-dA-h7m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P4W-bq-e9d">
+                                <variation key="heightClass=regular-widthClass=compact" constant="72"/>
                             </constraint>
                             <constraint firstItem="leN-IY-zzT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SE8-KP-SnU"/>
                             <constraint firstItem="SoI-G5-CQg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Udj-yw-kBx"/>
@@ -281,8 +331,12 @@
                             <constraint firstItem="SoI-G5-CQg" firstAttribute="top" secondItem="hmC-fB-jg9" secondAttribute="bottom" id="krE-NF-Aoe">
                                 <variation key="widthClass=compact" constant="75"/>
                             </constraint>
+                            <constraint firstItem="ALA-jy-4Ce" firstAttribute="top" secondItem="mzj-k2-HSb" secondAttribute="bottom" constant="8" id="lke-10-B5Q"/>
                             <constraint firstItem="Sww-2h-CWi" firstAttribute="centerX" secondItem="3tW-H0-ynG" secondAttribute="centerX" id="mDd-Zl-m6P"/>
                             <constraint firstItem="MSI-ng-mtN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mEZ-uB-Vqj"/>
+                            <constraint firstItem="mzj-k2-HSb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nSG-v4-aFB">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-66"/>
+                            </constraint>
                             <constraint firstItem="bxu-Gd-5e8" firstAttribute="top" secondItem="Sww-2h-CWi" secondAttribute="bottom" constant="97" id="tSm-3F-gY1">
                                 <variation key="widthClass=compact" constant="118"/>
                             </constraint>
@@ -307,6 +361,8 @@
                                 <exclude reference="wvh-Ny-lPj"/>
                                 <exclude reference="MSI-ng-mtN"/>
                                 <exclude reference="ALA-jy-4Ce"/>
+                                <exclude reference="mzj-k2-HSb"/>
+                                <exclude reference="eV7-dA-h7m"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="BEf-05-VmZ"/>
@@ -319,14 +375,18 @@
                                 <exclude reference="mEZ-uB-Vqj"/>
                                 <exclude reference="Udj-yw-kBx"/>
                                 <exclude reference="krE-NF-Aoe"/>
+                                <exclude reference="P4W-bq-e9d"/>
+                                <exclude reference="nSG-v4-aFB"/>
                                 <exclude reference="9kH-Qd-OaF"/>
                                 <exclude reference="DoO-NJ-OY9"/>
+                                <exclude reference="Mzn-lJ-JbH"/>
                                 <exclude reference="SE8-KP-SnU"/>
                                 <exclude reference="WxD-xA-Av7"/>
                                 <exclude reference="A8A-OS-Drz"/>
                                 <exclude reference="HtW-ij-WzM"/>
                                 <exclude reference="iSB-dx-zDx"/>
-                                <exclude reference="LJr-Ed-aZv"/>
+                                <exclude reference="3Zv-L8-hgu"/>
+                                <exclude reference="lke-10-B5Q"/>
                                 <exclude reference="u31-j5-ioE"/>
                                 <exclude reference="5rH-vP-Q6L"/>
                                 <exclude reference="mDd-Zl-m6P"/>
@@ -368,7 +428,6 @@
                                 <include reference="A8A-OS-Drz"/>
                                 <include reference="HtW-ij-WzM"/>
                                 <include reference="iSB-dx-zDx"/>
-                                <include reference="LJr-Ed-aZv"/>
                                 <include reference="u31-j5-ioE"/>
                                 <include reference="5rH-vP-Q6L"/>
                                 <include reference="mDd-Zl-m6P"/>
@@ -376,6 +435,19 @@
                                 <include reference="tSm-3F-gY1"/>
                                 <include reference="BX9-Qm-CFN"/>
                                 <include reference="vY8-Nr-QDJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="mzj-k2-HSb"/>
+                                <include reference="eV7-dA-h7m"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="P4W-bq-e9d"/>
+                                <include reference="nSG-v4-aFB"/>
+                                <include reference="Mzn-lJ-JbH"/>
+                                <include reference="3Zv-L8-hgu"/>
+                                <include reference="lke-10-B5Q"/>
                             </mask>
                         </variation>
                     </view>
@@ -1620,10 +1692,10 @@
             </objects>
             <point key="canvasLocation" x="2707.5" y="1095"/>
         </scene>
-        <!--View Controller-->
+        <!--Personal View Controller-->
         <scene sceneID="hpD-V5-Kk4">
             <objects>
-                <viewController id="bxd-vb-MVP" sceneMemberID="viewController">
+                <viewController id="bxd-vb-MVP" customClass="PersonalViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jbh-WA-faA"/>
                         <viewControllerLayoutGuide type="bottom" id="6PP-Nb-I48"/>
@@ -1655,7 +1727,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ds1-8F-wqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327" y="1167"/>
+            <point key="canvasLocation" x="295.5" y="1167"/>
         </scene>
         <!--Learn-->
         <scene sceneID="zNg-Wq-iQn">
@@ -1689,6 +1761,8 @@
         <image name="icon-password" width="35" height="45"/>
         <image name="icon-phonenumber" width="35" height="45"/>
         <image name="icon-verification code" width="35" height="45"/>
+        <image name="icon_qq" width="24" height="24"/>
+        <image name="icon_wechat" width="24" height="24"/>
         <image name="image-breakfast-no word" width="320" height="150"/>
         <image name="log in" width="225" height="40"/>
         <image name="setting" width="20" height="20"/>
