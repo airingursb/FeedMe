@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     "userId": 3
     */
     
-    struct User : JSONJoy {
+    struct Json : JSONJoy {
         var result: Int?
         var userId: Int?
         init() {
@@ -54,7 +54,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 let params: Dictionary<String,AnyObject> = ["userAccount": self.txtUserPhone.text!, "userPassword": self.txtPassword.text!]
                     request.POST("http://121.42.195.113/feedme/register.action", parameters: params, completionHandler: {(response: HTTPResponse) in
                     if let res: AnyObject = response.responseObject {
-                        let json = User(JSONDecoder(res))
+                        let json = Json(JSONDecoder(res))
                         print("result: \(json.result!)")
                         if (json.result! == 1) {
                             print("注册成功")

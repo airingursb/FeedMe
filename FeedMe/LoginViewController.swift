@@ -49,6 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtUserAccount: UITextField!
     @IBOutlet weak var txtUserPassword: UITextField!
+    @IBOutlet weak var imgLogo: UIImageView!
     
     @IBAction func login() {
         
@@ -125,6 +126,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.imgLogo.center.x -= self.view.bounds.width
+        
         //获取管理的数据上下文 对象
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
@@ -144,13 +147,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             fatalError("不能保存：\(error)")
         }
         
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()

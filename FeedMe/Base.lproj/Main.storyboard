@@ -88,6 +88,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3M-Gn-Fkj">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="username"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="8Zo-qt-oN5"/>
                                     <constraint firstAttribute="height" constant="40" id="EKE-AE-uJI"/>
@@ -117,6 +118,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmC-fB-jg9">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="password"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="199" id="Ba5-XF-5aF"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="EJP-zn-XSg"/>
@@ -452,6 +454,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="imgLogo" destination="Sww-2h-CWi" id="a1e-ii-5oW"/>
                         <outlet property="txtUserAccount" destination="V3M-Gn-Fkj" id="B3G-9Z-ppg"/>
                         <outlet property="txtUserPassword" destination="hmC-fB-jg9" id="lQw-Ej-oZQ"/>
                         <segue destination="Q5l-3o-fch" kind="show" identifier="LoginSegue" id="9ey-wI-MuE"/>

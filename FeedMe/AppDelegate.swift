@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
         
-        
+        print("sqlite: \(url)")
         
         var failureReason = "There was an error creating or loading the application's saved data."
         do {

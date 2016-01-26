@@ -16,6 +16,31 @@
 		9D29D9A31C4A7A1E006931F2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A21C4A7A1E006931F2 /* MessageUI.framework */; };
 		9D29D9A51C4A7A31006931F2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A41C4A7A31006931F2 /* libz.tbd */; };
 		9D29D9A71C4A7A3F006931F2 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A61C4A7A3F006931F2 /* libicucore.tbd */; };
+		9D2DCF9F1C57590600B39CD5 /* FeedMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2DCF9E1C57590600B39CD5 /* FeedMeUITests.swift */; };
+		9D2DCFAC1C5759E700B39CD5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D73ED8A1C54A70A00A758E3 /* CoreData.framework */; };
+		9D2DCFAD1C5759F100B39CD5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5581C508BFF00FDA270 /* libsqlite3.tbd */; };
+		9D2DCFAE1C5759F900B39CD5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5561C508BEA00FDA270 /* JavaScriptCore.framework */; };
+		9D2DCFAF1C575A0400B39CD5 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5541C508BDC00FDA270 /* libstdc++.tbd */; };
+		9D2DCFB01C575A1B00B39CD5 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A61C4A7A3F006931F2 /* libicucore.tbd */; };
+		9D2DCFB41C575A3600B39CD5 /* JSONJoy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2DCFB11C575A3600B39CD5 /* JSONJoy.framework */; };
+		9D2DCFB51C575A3600B39CD5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2DCFB21C575A3600B39CD5 /* Pods.framework */; };
+		9D2DCFB61C575A3600B39CD5 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2DCFB31C575A3600B39CD5 /* SwiftHTTP.framework */; };
+		9D2DCFB71C575A4000B39CD5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9A41C4A7A31006931F2 /* libz.tbd */; };
+		9D2DCFB81C575BC700B39CD5 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D29D9981C4A788F006931F2 /* SMS_SDK.framework */; };
+		9D2DCFB91C575C0700B39CD5 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5401C508BAF00FDA270 /* MOBFoundation.framework */; };
+		9D2DCFBA1C575C0700B39CD5 /* ShareSDK.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5411C508BAF00FDA270 /* ShareSDK.bundle */; };
+		9D2DCFBB1C575C0700B39CD5 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5421C508BAF00FDA270 /* ShareSDK.framework */; };
+		9D2DCFBC1C575C0700B39CD5 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5431C508BAF00FDA270 /* ShareSDKConnector.framework */; };
+		9D2DCFBD1C575C0700B39CD5 /* ShareSDKExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5441C508BAF00FDA270 /* ShareSDKExtension.framework */; };
+		9D2DCFBE1C575C0700B39CD5 /* ShareSDKInterfaceAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5451C508BAF00FDA270 /* ShareSDKInterfaceAdapter.framework */; };
+		9D2DCFBF1C575C0700B39CD5 /* ShareSDKUI.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5461C508BAF00FDA270 /* ShareSDKUI.bundle */; };
+		9D2DCFC01C575C0700B39CD5 /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5471C508BAF00FDA270 /* ShareSDKUI.framework */; };
+		9D2DCFC11C575C3E00B39CD5 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5381C508BAF00FDA270 /* TencentOpenAPI.framework */; };
+		9D2DCFC21C575C3E00B39CD5 /* TencentOpenApi_IOS_Bundle.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5391C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		9D2DCFC31C575C4800B39CD5 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B53B1C508BAF00FDA270 /* libWeChatSDK.a */; };
+		9D2DCFC41C575C4E00B39CD5 /* WechatAuthSDK.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B53D1C508BAF00FDA270 /* WechatAuthSDK.h */; };
+		9D2DCFC51C575C4E00B39CD5 /* WXApi.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B53E1C508BAF00FDA270 /* WXApi.h */; };
+		9D2DCFC61C575C4E00B39CD5 /* WXApiObject.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B53F1C508BAF00FDA270 /* WXApiObject.h */; };
 		9D6C1E961C4F1F1D00A71384 /* MainWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */; };
 		9D6C1E981C4F650C00A71384 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C1E971C4F650C00A71384 /* LearnViewController.swift */; };
 		9D73ED891C54A5CC00A758E3 /* FeedMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D73ED871C54A5CC00A758E3 /* FeedMe.xcdatamodeld */; };
@@ -46,6 +71,16 @@
 		F89AD48C7949C9F48913029F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7722B83EFFD365E65427CB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9D2DCFA11C57590600B39CD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7793821C49EC410084D151 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D7793891C49EC410084D151;
+			remoteInfo = FeedMe;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5D2725A297BE520D2B9B96D7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A7722B83EFFD365E65427CB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +95,15 @@
 		9D29D9A21C4A7A1E006931F2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9D29D9A41C4A7A31006931F2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9D29D9A61C4A7A3F006931F2 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		9D2DCF9C1C57590600B39CD5 /* FeedMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D2DCF9E1C57590600B39CD5 /* FeedMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMeUITests.swift; sourceTree = "<group>"; };
+		9D2DCFA01C57590600B39CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D2DCFA61C57598900B39CD5 /* JSONJoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONJoy.framework; path = "Pods/../build/Debug-iphoneos/JSONJoy.framework"; sourceTree = "<group>"; };
+		9D2DCFA71C57598900B39CD5 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
+		9D2DCFA81C57598900B39CD5 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = "Pods/../build/Debug-iphoneos/SwiftHTTP.framework"; sourceTree = "<group>"; };
+		9D2DCFB11C575A3600B39CD5 /* JSONJoy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSONJoy.framework; path = "Pods/../build/Debug-iphoneos/JSONJoy.framework"; sourceTree = "<group>"; };
+		9D2DCFB21C575A3600B39CD5 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
+		9D2DCFB31C575A3600B39CD5 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = "Pods/../build/Debug-iphoneos/SwiftHTTP.framework"; sourceTree = "<group>"; };
 		9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainWordViewController.swift; path = FeedMe/MainWordViewController.swift; sourceTree = "<group>"; };
 		9D6C1E971C4F650C00A71384 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LearnViewController.swift; path = FeedMe/LearnViewController.swift; sourceTree = "<group>"; };
 		9D73ED881C54A5CC00A758E3 /* FeedMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedMe.xcdatamodel; sourceTree = "<group>"; };
@@ -96,6 +140,37 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9D2DCF991C57590600B39CD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D2DCFC41C575C4E00B39CD5 /* WechatAuthSDK.h in Frameworks */,
+				9D2DCFC51C575C4E00B39CD5 /* WXApi.h in Frameworks */,
+				9D2DCFC61C575C4E00B39CD5 /* WXApiObject.h in Frameworks */,
+				9D2DCFC31C575C4800B39CD5 /* libWeChatSDK.a in Frameworks */,
+				9D2DCFC11C575C3E00B39CD5 /* TencentOpenAPI.framework in Frameworks */,
+				9D2DCFC21C575C3E00B39CD5 /* TencentOpenApi_IOS_Bundle.bundle in Frameworks */,
+				9D2DCFB91C575C0700B39CD5 /* MOBFoundation.framework in Frameworks */,
+				9D2DCFBA1C575C0700B39CD5 /* ShareSDK.bundle in Frameworks */,
+				9D2DCFBB1C575C0700B39CD5 /* ShareSDK.framework in Frameworks */,
+				9D2DCFBC1C575C0700B39CD5 /* ShareSDKConnector.framework in Frameworks */,
+				9D2DCFBD1C575C0700B39CD5 /* ShareSDKExtension.framework in Frameworks */,
+				9D2DCFBE1C575C0700B39CD5 /* ShareSDKInterfaceAdapter.framework in Frameworks */,
+				9D2DCFBF1C575C0700B39CD5 /* ShareSDKUI.bundle in Frameworks */,
+				9D2DCFC01C575C0700B39CD5 /* ShareSDKUI.framework in Frameworks */,
+				9D2DCFB81C575BC700B39CD5 /* SMS_SDK.framework in Frameworks */,
+				9D2DCFB71C575A4000B39CD5 /* libz.tbd in Frameworks */,
+				9D2DCFB41C575A3600B39CD5 /* JSONJoy.framework in Frameworks */,
+				9D2DCFB51C575A3600B39CD5 /* Pods.framework in Frameworks */,
+				9D2DCFB61C575A3600B39CD5 /* SwiftHTTP.framework in Frameworks */,
+				9D2DCFB01C575A1B00B39CD5 /* libicucore.tbd in Frameworks */,
+				9D2DCFAF1C575A0400B39CD5 /* libstdc++.tbd in Frameworks */,
+				9D2DCFAE1C5759F900B39CD5 /* JavaScriptCore.framework in Frameworks */,
+				9D2DCFAD1C5759F100B39CD5 /* libsqlite3.tbd in Frameworks */,
+				9D2DCFAC1C5759E700B39CD5 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D7793871C49EC410084D151 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +231,15 @@
 			path = FeedMe/SMS_SDK;
 			sourceTree = "<group>";
 		};
+		9D2DCF9D1C57590600B39CD5 /* FeedMeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9D2DCF9E1C57590600B39CD5 /* FeedMeUITests.swift */,
+				9D2DCFA01C57590600B39CD5 /* Info.plist */,
+			);
+			path = FeedMeUITests;
+			sourceTree = "<group>";
+		};
 		9D73EDB91C54AA9500A758E3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +255,7 @@
 				9D73EDB91C54AA9500A758E3 /* Entity */,
 				9D29D98E1C4A3DF2006931F2 /* View */,
 				9D77938C1C49EC410084D151 /* FeedMe */,
+				9D2DCF9D1C57590600B39CD5 /* FeedMeUITests */,
 				9D77938B1C49EC410084D151 /* Products */,
 				6820A26849EFF2958AD1B533 /* Pods */,
 				EF30A5FD1EA4646AD739D04E /* Frameworks */,
@@ -181,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				9D77938A1C49EC410084D151 /* FeedMe.app */,
+				9D2DCF9C1C57590600B39CD5 /* FeedMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +335,12 @@
 		EF30A5FD1EA4646AD739D04E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D2DCFB11C575A3600B39CD5 /* JSONJoy.framework */,
+				9D2DCFB21C575A3600B39CD5 /* Pods.framework */,
+				9D2DCFB31C575A3600B39CD5 /* SwiftHTTP.framework */,
+				9D2DCFA61C57598900B39CD5 /* JSONJoy.framework */,
+				9D2DCFA71C57598900B39CD5 /* Pods.framework */,
+				9D2DCFA81C57598900B39CD5 /* SwiftHTTP.framework */,
 				9D73ED8A1C54A70A00A758E3 /* CoreData.framework */,
 				9D29D9951C4A788F006931F2 /* SMS_SDK */,
 				9D95B5581C508BFF00FDA270 /* libsqlite3.tbd */,
@@ -268,6 +360,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9D2DCF9B1C57590600B39CD5 /* FeedMeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D2DCFA51C57590600B39CD5 /* Build configuration list for PBXNativeTarget "FeedMeUITests" */;
+			buildPhases = (
+				9D2DCF981C57590600B39CD5 /* Sources */,
+				9D2DCF991C57590600B39CD5 /* Frameworks */,
+				9D2DCF9A1C57590600B39CD5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D2DCFA21C57590600B39CD5 /* PBXTargetDependency */,
+			);
+			name = FeedMeUITests;
+			productName = FeedMeUITests;
+			productReference = 9D2DCF9C1C57590600B39CD5 /* FeedMeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9D7793891C49EC410084D151 /* FeedMe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D77939C1C49EC410084D151 /* Build configuration list for PBXNativeTarget "FeedMe" */;
@@ -301,6 +411,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Airing;
 				TargetAttributes = {
+					9D2DCF9B1C57590600B39CD5 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 9D7793891C49EC410084D151;
+					};
 					9D7793891C49EC410084D151 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 7W5PDC537K;
@@ -322,11 +436,19 @@
 			projectRoot = "";
 			targets = (
 				9D7793891C49EC410084D151 /* FeedMe */,
+				9D2DCF9B1C57590600B39CD5 /* FeedMeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9D2DCF9A1C57590600B39CD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D7793881C49EC410084D151 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,6 +515,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9D2DCF981C57590600B39CD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D2DCF9F1C57590600B39CD5 /* FeedMeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9D7793861C49EC410084D151 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,6 +541,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9D2DCFA21C57590600B39CD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D7793891C49EC410084D151 /* FeedMe */;
+			targetProxy = 9D2DCFA11C57590600B39CD5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9D29D9961C4A788F006931F2 /* SMS_SDKLocalizable.strings */ = {
@@ -441,6 +579,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9D2DCFA31C57590600B39CD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/FeedMe/SMS_SDK",
+					"$(PROJECT_DIR)/libraries",
+					"$(PROJECT_DIR)/libraries/extends/QQSDK",
+				);
+				INFOPLIST_FILE = FeedMeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libraries/extends/WeChatSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.ursb.FeedMeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FeedMe;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		9D2DCFA41C57590600B39CD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/FeedMe/SMS_SDK",
+					"$(PROJECT_DIR)/libraries",
+					"$(PROJECT_DIR)/libraries/extends/QQSDK",
+				);
+				INFOPLIST_FILE = FeedMeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libraries/extends/WeChatSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.ursb.FeedMeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FeedMe;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		9D77939A1C49EC410084D151 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -573,6 +757,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9D2DCFA51C57590600B39CD5 /* Build configuration list for PBXNativeTarget "FeedMeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D2DCFA31C57590600B39CD5 /* Debug */,
+				9D2DCFA41C57590600B39CD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9D7793851C49EC410084D151 /* Build configuration list for PBXProject "FeedMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
