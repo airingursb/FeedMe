@@ -1,5 +1,5 @@
 //
-//  PersonalViewController.swift
+//  MenuViewController.swift
 //  FeedMe
 //
 //  Created by Airing on 16/1/22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalViewController: UIViewController {
+class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,6 +9,8 @@
 #ifndef FeedMe_Bridging_Header_h
 #define FeedMe_Bridging_Header_h
 
+#import "SWRevealViewController.h"
+
 #import <SMS_SDK/SMS_SDK.h>
 
 

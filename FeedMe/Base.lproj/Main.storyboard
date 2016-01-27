@@ -287,6 +287,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="loginByWechat" destination="BYZ-38-t0r" eventType="touchUpInside" id="ed7-SX-fEX"/>
+                                    <segue destination="Q5l-3o-fch" kind="show" id="RI2-dy-XmB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -878,12 +879,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="np3-E2-mkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225.5" y="1755"/>
+            <point key="canvasLocation" x="2041.5" y="1866"/>
         </scene>
         <!--Group-->
         <scene sceneID="AwM-jA-kWp">
             <objects>
-                <viewController id="2rT-Ve-67q" sceneMemberID="viewController">
+                <viewController id="2rT-Ve-67q" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QCy-HW-IFH"/>
                         <viewControllerLayoutGuide type="bottom" id="YNe-2N-iKs"/>
@@ -894,10 +895,108 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Group" image="tab-group-pre" id="N10-JC-G4j"/>
+                    <connections>
+                        <segue destination="paq-EW-QYw" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="gi9-FW-0fn"/>
+                        <segue destination="VxB-6c-uzk" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="3Gd-H2-AQg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sqt-ts-1po" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1225.5" y="2416"/>
+            <point key="canvasLocation" x="2041.5" y="3090.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3z0-bw-qxJ">
+            <objects>
+                <viewController id="paq-EW-QYw" customClass="ViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OdY-YA-HdW"/>
+                        <viewControllerLayoutGuide type="bottom" id="XTY-cs-cWt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tmg-OS-3Fc">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="circle" translatesAutoresizingMaskIntoConstraints="NO" id="Raf-v4-gVp">
+                                <rect key="frame" x="0.0" y="-120" width="120" height="120"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="52" width="120" height="120"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUs-XM-e3A">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="281" width="46" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wb-HX-UEG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="217" width="46" height="30"/>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Raf-v4-gVp"/>
+                                <exclude reference="wUs-XM-e3A"/>
+                                <exclude reference="6wb-HX-UEG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Raf-v4-gVp"/>
+                                <include reference="wUs-XM-e3A"/>
+                                <include reference="6wb-HX-UEG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FQT-bL-bVo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3121.5" y="3090.75"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="cRV-SQ-6is">
+            <objects>
+                <viewController id="GyU-0b-m8z" customClass="ImageViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fkn-8P-7C3"/>
+                        <viewControllerLayoutGuide type="bottom" id="WTz-7H-Det"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="44a-pL-PLf">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="NrZ-8f-4DA">
+                                <rect key="frame" x="0.0" y="-667" width="375" height="667"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="NrZ-8f-4DA"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="NrZ-8f-4DA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="eOU-iS-esk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qZe-27-67E"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="qZe-27-67E" id="q1Z-Yh-DuH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PP9-Xh-t7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5095.5" y="2390.25"/>
         </scene>
         <!--Learn-->
         <scene sceneID="DLN-jx-tiw">
@@ -1515,7 +1614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixb-VH-tsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947" y="1095"/>
+            <point key="canvasLocation" x="2041.5" y="1095"/>
         </scene>
         <!--Learn View Controller-->
         <scene sceneID="JW8-68-gEG">
@@ -1693,12 +1792,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGN-le-xPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2707.5" y="1095"/>
+            <point key="canvasLocation" x="4177.5" y="1116"/>
         </scene>
-        <!--Personal View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="hpD-V5-Kk4">
             <objects>
-                <viewController id="bxd-vb-MVP" customClass="PersonalViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bxd-vb-MVP" customClass="MenuViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jbh-WA-faA"/>
                         <viewControllerLayoutGuide type="bottom" id="6PP-Nb-I48"/>
@@ -1711,7 +1810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zi-sX-oaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947" y="387"/>
+            <point key="canvasLocation" x="3693" y="429.75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CyA-zZ-vAr">
@@ -1730,7 +1829,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ds1-8F-wqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295.5" y="1167"/>
+            <point key="canvasLocation" x="295.5" y="1866"/>
         </scene>
         <!--Learn-->
         <scene sceneID="zNg-Wq-iQn">
@@ -1751,12 +1850,31 @@
             </objects>
             <point key="canvasLocation" x="1225.5" y="1095"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="abQ-p0-KdW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VxB-6c-uzk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3uW-3g-TLq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GyU-0b-m8z" kind="relationship" relationship="rootViewController" id="7Kb-H0-gve"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L60-Jl-Fe5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4177.5" y="2390.25"/>
+        </scene>
     </scenes>
     <resources>
         <image name="FeedMe" width="142" height="29"/>
         <image name="RegisterButton" width="66" height="27"/>
         <image name="WhiteLine" width="66" height="21"/>
         <image name="background" width="320" height="568"/>
+        <image name="background-1" width="375" height="667"/>
         <image name="btn-start" width="249" height="35"/>
         <image name="circle" width="120" height="120"/>
         <image name="circle-line" width="60" height="60"/>
@@ -1773,4 +1891,7 @@
         <image name="tab-pet-pre" width="21" height="18"/>
         <image name="tab-word-pre" width="28" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RI2-dy-XmB"/>
+    </inferredMetricsTieBreakers>
 </document>
