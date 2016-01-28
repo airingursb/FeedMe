@@ -968,22 +968,43 @@
                     <view key="view" contentMode="scaleToFill" id="44a-pL-PLf">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="NrZ-8f-4DA">
-                                <rect key="frame" x="0.0" y="-667" width="375" height="667"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01z-y7-iSs">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="upload"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <rect key="frame" x="20" y="91" width="47" height="30"/>
+                                </variation>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tT5-LU-Otl">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="145" width="240" height="240"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxc-2y-Ff6">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="pick image"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="103" y="91" width="74" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickImage" destination="GyU-0b-m8z" eventType="touchUpInside" id="HuY-SJ-beL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="NrZ-8f-4DA"/>
+                                <exclude reference="01z-y7-iSs"/>
+                                <exclude reference="tT5-LU-Otl"/>
+                                <exclude reference="Qxc-2y-Ff6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="NrZ-8f-4DA"/>
+                                <include reference="01z-y7-iSs"/>
+                                <include reference="tT5-LU-Otl"/>
+                                <include reference="Qxc-2y-Ff6"/>
                             </mask>
                         </variation>
                     </view>
@@ -991,6 +1012,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="qZe-27-67E"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="imgUserHead" destination="tT5-LU-Otl" id="aze-G6-R3N"/>
                         <outlet property="menuButton" destination="qZe-27-67E" id="q1Z-Yh-DuH"/>
                     </connections>
                 </viewController>
@@ -1874,7 +1896,6 @@
         <image name="RegisterButton" width="66" height="27"/>
         <image name="WhiteLine" width="66" height="21"/>
         <image name="background" width="320" height="568"/>
-        <image name="background-1" width="375" height="667"/>
         <image name="btn-start" width="249" height="35"/>
         <image name="circle" width="120" height="120"/>
         <image name="circle-line" width="60" height="60"/>

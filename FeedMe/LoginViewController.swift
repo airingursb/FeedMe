@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     "userPoint": 0
     */
     
-    struct Jsons : JSONJoy {
+    struct Response : JSONJoy {
         var result: Int?
         var userId: Int?
         var userAccount: String?
@@ -99,18 +99,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func sendAndReceive() {
+        
         let request = HTTPTask()
         let params: Dictionary<String,AnyObject> = ["userAccount": txtUserAccount.text!, "userPassword": txtUserPassword.text!]
+        
         request.POST("http://121.42.195.113/feedme/login.action", parameters: params, completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
-                let user = Jsons(JSONDecoder(res))
-                print("result:\(user.result!)\nuserId:\(user.userId!)\nuserAccount:\(user.userAccount!)\nuserName:\(user.userName!)\nuserHead:\(user.userHead!)\nuserCreateTime:\(user.userCreateTime!)\nuserPoint:\(user.userPoint!)")
-                if (user.result! == 1) {
+                let user = Response(JSONDecoder(res))
+                if (user.result == 1) {
                     self.userId = user.userId!
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         self.performSegueWithIdentifier("LoginSegue", sender: self.userId)
                     })
-                    
+                    print("result:\(user.result!)\nuserId:\(user.userId!)\nuserAccount:\(user.userAccount!)\nuserName:\(user.userName!)\nuserHead:\(user.userHead!)\nuserCreateTime:\(user.userCreateTime!)\nuserPoint:\(user.userPoint!)")
                 } else {
                     let alertController = UIAlertController(title: "FeedMe",
                         message: "Please Check Your Message.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -125,9 +126,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.imgLogo.center.x -= self.view.bounds.width
-        
+                
         //获取管理的数据上下文 对象
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
@@ -154,6 +153,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        txtUserAccount.resignFirstResponder()
+        txtUserPassword.resignFirstResponder()
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()

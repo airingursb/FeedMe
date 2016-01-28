@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     "userId": 3
     */
     
-    struct Json : JSONJoy {
+    struct Response : JSONJoy {
         var result: Int?
         var userId: Int?
         init() {
@@ -54,9 +54,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 let params: Dictionary<String,AnyObject> = ["userAccount": self.txtUserPhone.text!, "userPassword": self.txtPassword.text!]
                     request.POST("http://121.42.195.113/feedme/register.action", parameters: params, completionHandler: {(response: HTTPResponse) in
                     if let res: AnyObject = response.responseObject {
-                        let json = Json(JSONDecoder(res))
+                        let json = Response(JSONDecoder(res))
                         print("result: \(json.result!)")
-                        if (json.result! == 1) {
+                        if (json.result == 1) {
                             print("注册成功")
                             self.performSegueWithIdentifier("RegisterSegue", sender: self)
                         } else {
@@ -82,6 +82,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        txtUserPhone.resignFirstResponder()
+        txtCode.resignFirstResponder()
+        txtPassword.resignFirstResponder()
+        txtPasswordAgian.resignFirstResponder()
+    }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
