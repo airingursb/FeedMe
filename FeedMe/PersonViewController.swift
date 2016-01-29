@@ -10,7 +10,7 @@ import UIKit
 import SwiftHTTP
 import JSONJoy
 
-class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PersonViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     /*
     "result": 1,
@@ -61,10 +61,24 @@ class ImageViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imgUserHead.image = image
         
+        var data: NSData
+        var mimeType: String
+        var fileName: String
+        
+        if (UIImagePNGRepresentation(image) == nil) {
+            data = UIImageJPEGRepresentation(image, 1)!;
+            mimeType = "image/jpeg"
+            fileName = "head_" + ".jpg"
+        } else {
+            data = UIImagePNGRepresentation(image)!;
+            mimeType = "image/png"
+            fileName = "head_" + ".png"
+        }
+        
         do {
             let request = HTTPTask()
             
-            request.POST("http://121.42.195.113/feedme/upload_head.action", parameters:  ["upload": HTTPUpload(data: UIImageJPEGRepresentation(image, 1)!, fileName: "sb.jpg", mimeType: "image/jpeg")], completionHandler: {(response: HTTPResponse) in
+            request.POST("http://121.42.195.113/feedme/upload_head.action", parameters:  ["upload": HTTPUpload(data: data, fileName: fileName, mimeType: mimeType)], completionHandler: {(response: HTTPResponse) in
                 if let res: AnyObject = response.responseObject {
                     let json = Response(JSONDecoder(res))
                     if (json.result == 1) {
