@@ -22,7 +22,6 @@ class MenuViewController: UIViewController {
         imgUserHead.layer.masksToBounds = true
         imgUserHead.layer.cornerRadius = 50
         
-        
     }
     
     override func didReceiveMemoryWarning() {

@@ -74,6 +74,10 @@
 		9D95B55B1C52186700FDA270 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95B55A1C52186700FDA270 /* MenuViewController.swift */; };
 		9DAB0CAD1C5B40F200142050 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */; };
 		9DAB0CAE1C5B40F200142050 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */; };
+		9DAB0CC61C5DD10A00142050 /* PersonViewControllDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CC51C5DD10A00142050 /* PersonViewControllDemo.swift */; };
+		9DAB0CC71C5DD10A00142050 /* PersonViewControllDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CC51C5DD10A00142050 /* PersonViewControllDemo.swift */; };
+		9DAB0CCC1C5DDDB700142050 /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */; };
+		9DAB0CCD1C5DDDB700142050 /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */; };
 		F89AD48C7949C9F48913029F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7722B83EFFD365E65427CB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -146,6 +150,8 @@
 		9D95B5581C508BFF00FDA270 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		9D95B55A1C52186700FDA270 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = FeedMe/MenuViewController.swift; sourceTree = "<group>"; };
 		9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = FeedMe/GroupViewController.swift; sourceTree = "<group>"; };
+		9DAB0CC51C5DD10A00142050 /* PersonViewControllDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonViewControllDemo.swift; path = FeedMe/PersonViewControllDemo.swift; sourceTree = "<group>"; };
+		9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonInfoCell.swift; path = FeedMe/PersonInfoCell.swift; sourceTree = "<group>"; };
 		B6CAB54B3DE61B65C189D05D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +228,7 @@
 		9D29D98E1C4A3DF2006931F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9DAB0CAF1C5DC5EA00142050 /* Cell */,
 				9D29D9931C4A4750006931F2 /* LoginViewController.swift */,
 				9D29D9911C4A4726006931F2 /* RegisterViewController.swift */,
 				9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */,
@@ -229,6 +236,7 @@
 				9D95B55A1C52186700FDA270 /* MenuViewController.swift */,
 				9D2DCFE71C58E94500B39CD5 /* PersonViewController.swift */,
 				9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */,
+				9DAB0CC51C5DD10A00142050 /* PersonViewControllDemo.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -353,6 +361,14 @@
 				9D95B53F1C508BAF00FDA270 /* WXApiObject.h */,
 			);
 			path = WeChatSDK;
+			sourceTree = "<group>";
+		};
+		9DAB0CAF1C5DC5EA00142050 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		EF30A5FD1EA4646AD739D04E /* Frameworks */ = {
@@ -542,10 +558,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DAB0CCD1C5DDDB700142050 /* PersonInfoCell.swift in Sources */,
 				9DAB0CAE1C5B40F200142050 /* GroupViewController.swift in Sources */,
 				9D2DCF9F1C57590600B39CD5 /* FeedMeUITests.swift in Sources */,
 				9D2DCFE91C58E94500B39CD5 /* PersonViewController.swift in Sources */,
 				9D2DCFE61C58E8D600B39CD5 /* SWRevealViewController.m in Sources */,
+				9DAB0CC71C5DD10A00142050 /* PersonViewControllDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,10 +575,12 @@
 				9D77938E1C49EC410084D151 /* AppDelegate.swift in Sources */,
 				9D29D9941C4A4750006931F2 /* LoginViewController.swift in Sources */,
 				9D73ED891C54A5CC00A758E3 /* FeedMe.xcdatamodeld in Sources */,
+				9DAB0CC61C5DD10A00142050 /* PersonViewControllDemo.swift in Sources */,
 				9D29D9921C4A4726006931F2 /* RegisterViewController.swift in Sources */,
 				9D6C1E961C4F1F1D00A71384 /* MainWordViewController.swift in Sources */,
 				9D6C1E981C4F650C00A71384 /* LearnViewController.swift in Sources */,
 				9D95B55B1C52186700FDA270 /* MenuViewController.swift in Sources */,
+				9DAB0CCC1C5DDDB700142050 /* PersonInfoCell.swift in Sources */,
 				9D2DCFE51C58E8D600B39CD5 /* SWRevealViewController.m in Sources */,
 				9D73EDC11C54B42200A758E3 /* User.swift in Sources */,
 				9DAB0CAD1C5B40F200142050 /* GroupViewController.swift in Sources */,

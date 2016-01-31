@@ -1162,6 +1162,9 @@
                                         <include reference="Qdk-Ov-cDi"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="E71-Wx-o2X" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="jSm-Aa-z0o"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_message" translatesAutoresizingMaskIntoConstraints="NO" id="MbL-HC-A3J">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1397,6 +1400,73 @@
             </objects>
             <point key="canvasLocation" x="3121.5" y="3090.75"/>
         </scene>
+        <!--Person View Controll Demo-->
+        <scene sceneID="WF2-Tp-juQ">
+            <objects>
+                <tableViewController id="bhR-Qk-Ak1" customClass="PersonViewControllDemo" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" id="xjz-RR-VRH">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonInfoCell" rowHeight="140" id="ehI-KM-cnf" customClass="PersonInfoCell" customModule="FeedMe" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ehI-KM-cnf" id="p4T-nK-TLs">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzL-1E-c4v">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="20" y="59" width="54" height="21"/>
+                                            </variation>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uN8-Ig-Res">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" title="重新选择">
+                                                <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="100" y="54" width="60" height="30"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="pickImage" destination="bhR-Qk-Ak1" eventType="touchUpInside" id="myB-JQ-fAR"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="VzL-1E-c4v"/>
+                                            <exclude reference="uN8-Ig-Res"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="VzL-1E-c4v"/>
+                                            <include reference="uN8-Ig-Res"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="btnPickImage" destination="uN8-Ig-Res" id="4z8-2q-DxR"/>
+                                    <outlet property="lblTitle" destination="VzL-1E-c4v" id="hvU-6Y-GoM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bhR-Qk-Ak1" id="qo3-AI-njm"/>
+                            <outlet property="delegate" destination="bhR-Qk-Ak1" id="MYc-rM-20H"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="YfH-ya-xDO">
+                        <barButtonItem key="leftBarButtonItem" image="setting" id="hOh-YS-5CR"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Oh-an-7bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5041.5" y="3090.75"/>
+        </scene>
         <!--Person View Controller-->
         <scene sceneID="cRV-SQ-6is">
             <objects>
@@ -1412,14 +1482,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tT5-LU-Otl">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="145" width="240" height="240"/>
+                                    <rect key="frame" x="60" y="535" width="100" height="100"/>
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxc-2y-Ff6">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="pick image"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="103" y="91" width="74" height="30"/>
+                                    <rect key="frame" x="150" y="227" width="100" height="100"/>
                                 </variation>
                                 <connections>
                                     <action selector="pickImage" destination="GyU-0b-m8z" eventType="touchUpInside" id="HuY-SJ-beL"/>
@@ -1444,6 +1514,7 @@
                         <barButtonItem key="leftBarButtonItem" image="setting" id="qZe-27-67E"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnUserHead" destination="Qxc-2y-Ff6" id="B4Z-6U-F5t"/>
                         <outlet property="imgUserHead" destination="tT5-LU-Otl" id="aze-G6-R3N"/>
                         <outlet property="menuButton" destination="qZe-27-67E" id="q1Z-Yh-DuH"/>
                     </connections>
@@ -1467,7 +1538,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="736"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 </variation>
                             </tableView>
                         </subviews>
@@ -2373,6 +2444,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZZ-Uo-Qd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3775.5" y="2389.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ky3-l7-2jn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E71-Wx-o2X" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P06-Zv-4dq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bhR-Qk-Ak1" kind="relationship" relationship="rootViewController" id="Fzz-A2-wc2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jz7-2F-viM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4123.5" y="3090.75"/>
         </scene>
     </scenes>
     <resources>

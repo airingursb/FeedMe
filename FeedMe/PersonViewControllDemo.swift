@@ -1,17 +1,17 @@
 //
-//  ImageViewController.swift
+//  PersonViewControllDemo.swift
 //  FeedMe
 //
-//  Created by Airing on 16/1/27.
+//  Created by Airing on 16/1/31.
 //  Copyright © 2016年 Airing. All rights reserved.
 //
 
 import UIKit
-import SwiftHTTP
 import JSONJoy
+import SwiftHTTP
 
-class PersonViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+class PersonViewControllDemo: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
     /*
     "result": 1,
     "url": "http://121.42.195.113/feedme/images/face2.png"
@@ -24,24 +24,45 @@ class PersonViewController: UIViewController, UIImagePickerControllerDelegate, U
             url = decoder["url"].string
         }
     }
-
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var imgUserHead: UIImageView!
-    @IBOutlet weak var btnUserHead: UIButton!
-  
+    var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 140
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PersonInfoCell", forIndexPath: indexPath) as! PersonInfoCell
+        
+        if indexPath.row == 0 {
+            cell.lblTitle?.text = "头像"
+            imageView = UIImageView(frame: CGRectMake(264, 10, 120, 120))
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            cell.addSubview(imageView)
+        } else if indexPath.row == 1 {
+            cell.lblTitle?.text = "昵称"
+        } else if indexPath.row == 2 {
+            cell.lblTitle?.text = "性别"
+        } else if indexPath.row == 3 {
+            cell.lblTitle?.text = "生日"
+        } else {
+            cell.lblTitle?.text = "签名"
+        }
+        return cell
+        
     }
     
     @IBAction func pickImage() {
@@ -54,15 +75,11 @@ class PersonViewController: UIViewController, UIImagePickerControllerDelegate, U
         } else {
             print("read album error")
         }
-        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        print(info)
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        btnUserHead.setBackgroundImage(image, forState: UIControlState.Normal)
-        btnUserHead.layer.masksToBounds = true
-        btnUserHead.layer.cornerRadius = 50
+        imageView.image = image
         
         var data: NSData
         var mimeType: String
@@ -86,13 +103,6 @@ class PersonViewController: UIViewController, UIImagePickerControllerDelegate, U
                     let json = Response(JSONDecoder(res))
                     if (json.result == 1) {
                         print(json.url!)
-                        
-//                        let url : NSURL = NSURL(string: json.url!)!
-//                        let data : NSData = NSData(contentsOfURL:url)!
-//                        let image = UIImage(data:data, scale: 1.0)
-//                        self.imgUserHead.image = image
-//                        self.imgUserHead.layer.masksToBounds = true
-//                        self.imgUserHead.layer.cornerRadius = 50
                     } else {
                         print("error")
                     }
@@ -100,7 +110,7 @@ class PersonViewController: UIViewController, UIImagePickerControllerDelegate, U
             })
         }
         
+        
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }
