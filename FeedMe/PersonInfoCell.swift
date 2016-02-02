@@ -11,6 +11,5 @@ import UIKit
 class PersonInfoCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var btnPickImage: UIButton!
 
 }

@@ -18,10 +18,11 @@ class MenuViewController: UIViewController {
         let url : NSURL = NSURL(string:"http://121.42.195.113/feedme/images/face2.png")!
         let data : NSData = NSData(contentsOfURL:url)!
         let image = UIImage(data:data, scale: 1.0)
-        imgUserHead.image = image
-        imgUserHead.layer.masksToBounds = true
-        imgUserHead.layer.cornerRadius = 50
-        
+        if image != nil {
+            imgUserHead.image = image
+            imgUserHead.layer.masksToBounds = true
+            imgUserHead.layer.cornerRadius = 50
+        }
     }
     
     override func didReceiveMemoryWarning() {
