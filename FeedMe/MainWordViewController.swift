@@ -20,8 +20,9 @@ class MainWordViewController: UIViewController {
     @IBOutlet weak var lblLearnedWord: UILabel!
     @IBOutlet weak var lblMasterWord: UILabel!
     
-    var userId:Int = 0
-    
+    var userId: Int = 0
+    var dataUtil: DataUtil = DataUtil()
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class MainWordViewController: UIViewController {
         // 定义所有子页面返回按钮的名称
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         
-        
+        self.dataUtil.cacheSetInt("userId", value: self.userId)
         
         //获取管理的数据上下文 对象
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -54,7 +55,7 @@ class MainWordViewController: UIViewController {
         fetchRequest.entity = entity
         
         //设置查询条件
-        let predicate = NSPredicate(format: "age= '12' ", "")
+        let predicate = NSPredicate(format: "userId= \(self.userId)" , "")
         fetchRequest.predicate = predicate
         
         //查询操作
@@ -63,8 +64,7 @@ class MainWordViewController: UIViewController {
             
             //遍历查询的结果
             for info:User in fetchedObjects as! [User]{
-                print("name=\(info.name)")
-                print("age=\(info.age)")
+                print("userName=\(info.userName)")
             }
         }
         catch {

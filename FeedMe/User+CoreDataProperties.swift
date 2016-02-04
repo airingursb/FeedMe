@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  FeedMe
 //
-//  Created by Airing on 16/1/24.
+//  Created by Airing on 16/2/4.
 //  Copyright © 2016年 Airing. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,7 +14,14 @@ import CoreData
 
 extension User {
 
-    @NSManaged var name: String?
-    @NSManaged var age: NSNumber?
+    @NSManaged var userId: NSNumber?
+    @NSManaged var userName: String?
+    @NSManaged var userBirthday: String?
+    @NSManaged var userSex: NSNumber?
+    @NSManaged var userAccount: String?
+    @NSManaged var userHead: String?
+    @NSManaged var userCreateTime: String?
+    @NSManaged var userPoint: NSNumber?
+    @NSManaged var userPersonality: String?
 
 }

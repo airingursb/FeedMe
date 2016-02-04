@@ -15,12 +15,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     /*
     "result": 1,
-    "userId": 2,
+    "userId": 3,
     "userAccount": "18154099269",
-    "userName": "18819477586",
-    "userHead": "http://121.42.195.113/feedme/image/default.jpg",
-    "userCreateTime": "Jan 21, 2016 4:08:21 PM",
-    "userPoint": 0
+    "userName": "Airing",
+    "userHead": "http://121.42.195.113/feedme/images/head_2.png",
+    "userCreateTime": "2016/02/03",
+    "userPoint": 0,
+    "userSex": 1,
+    "userBirthday": "1995/06/30",
+    "userPersonality": "Orion"
     */
     
     struct Response : JSONJoy {
@@ -31,6 +34,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var userHead: String?
         var userCreateTime: String?
         var userPoint: Int?
+        var userSex: Int?
+        var userBirthday: String?
+        var userPersonality: String?
         init() {
         }
         init(_ decoder: JSONDecoder) {
@@ -41,6 +47,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             userHead = decoder["userHead"].string
             userCreateTime = decoder["userCreateTime"].string
             userPoint = decoder["userPoint"].integer
+            userSex = decoder["userSex"].integer
+            userBirthday = decoder["userBirthday"].string
+            userPersonality = decoder["userPersonality"].string
         }
     }
     
@@ -105,13 +114,76 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         request.POST("http://121.42.195.113/feedme/login.action", parameters: params, completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
-                let user = Response(JSONDecoder(res))
-                if (user.result == 1) {
-                    self.userId = user.userId!
+                let json = Response(JSONDecoder(res))
+                if (json.result == 1) {
+                    self.userId = json.userId!
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         self.performSegueWithIdentifier("LoginSegue", sender: self.userId)
                     })
-                    print("result:\(user.result!)\nuserId:\(user.userId!)\nuserAccount:\(user.userAccount!)\nuserName:\(user.userName!)\nuserHead:\(user.userHead!)\nuserCreateTime:\(user.userCreateTime!)\nuserPoint:\(user.userPoint!)")
+                    
+                    var userIsExisted = false
+                    
+                    let app = UIApplication.sharedApplication().delegate as! AppDelegate
+                    let context = app.managedObjectContext
+                    let fetchRequest:NSFetchRequest = NSFetchRequest()
+                    fetchRequest.fetchLimit = 10
+                    fetchRequest.fetchOffset = 0
+                    
+                    let entity:NSEntityDescription? = NSEntityDescription.entityForName("User",
+                        inManagedObjectContext: context)
+                    fetchRequest.entity = entity
+                    
+                    let predicate = NSPredicate(format: "userId= \(self.userId)" , "")
+                    fetchRequest.predicate = predicate
+                    
+                    do {
+                        let fetchedObjects:[AnyObject]? = try context.executeFetchRequest(fetchRequest)
+                        for info:User in fetchedObjects as! [User]{
+                            print("userName=\(info.userName)")
+                            if info.userName != nil {
+                                userIsExisted = true
+                                info.userAccount = json.userAccount
+                                info.userName = json.userName
+                                info.userHead = json.userHead
+                                info.userCreateTime = json.userCreateTime
+                                info.userPoint = json.userPoint
+                                info.userSex = json.userSex
+                                info.userBirthday = json.userBirthday
+                                info.userPersonality = json.userPersonality
+                                
+                                try context.save()
+                            }
+                        }
+                    }
+                    catch {
+                        fatalError("不能保存：\(error)")
+                    }
+                    
+                    print("userIsExisted: \(userIsExisted)")
+                    
+                    if userIsExisted == false {
+        
+                        let user = NSEntityDescription.insertNewObjectForEntityForName("User",
+                        inManagedObjectContext: context) as! User
+                    
+                        user.userId = json.userId
+                        user.userAccount = json.userAccount
+                        user.userName = json.userName
+                        user.userHead = json.userHead
+                        user.userCreateTime = json.userCreateTime
+                        user.userPoint = json.userPoint
+                        user.userSex = json.userSex
+                        user.userBirthday = json.userBirthday
+                        user.userPersonality = json.userPersonality
+                        
+                        do {
+                            try context.save()
+                            print("保存成功！")
+                        } catch {
+                            fatalError("不能保存：\(error)")
+                        }
+                    }
+                    
                 } else {
                     let alertController = UIAlertController(title: "FeedMe",
                         message: "Please Check Your Message.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -126,26 +198,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        //获取管理的数据上下文 对象
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = app.managedObjectContext
-        
-        //创建User对象
-        let user = NSEntityDescription.insertNewObjectForEntityForName("User",
-            inManagedObjectContext: context) as! User
-        
-        //对象赋值
-        user.name = "airing"
-        user.age = 12
-        
-        do {
-            try context.save()
-            print("保存成功！")
-        } catch {
-            fatalError("不能保存：\(error)")
-        }
-        
+
     }
     
     override func didReceiveMemoryWarning() {
