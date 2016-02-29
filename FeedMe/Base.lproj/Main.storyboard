@@ -732,7 +732,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="TwV-rF-nv9"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="RegisterSegue" id="TwV-rF-nv9"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-verification code" translatesAutoresizingMaskIntoConstraints="NO" id="EdT-SU-xcV">
@@ -1509,7 +1509,8 @@
                                         <exclude reference="hE6-0c-qQp"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="-4" y="20" width="8" height="289"/>
                                     <mask key="constraints">
                                         <include reference="hE6-0c-qQp"/>
                                     </mask>
@@ -1528,7 +1529,8 @@
                                         <exclude reference="9aU-Qg-jG3"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="-15" y="347" width="30" height="30"/>
                                     <mask key="constraints">
                                         <include reference="6Pn-9H-1Qr"/>
                                         <include reference="9aU-Qg-jG3"/>
@@ -1608,6 +1610,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oNq-dg-siO" id="7GG-XJ-GEO">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="261.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TuW-c0-YXj">
@@ -1628,7 +1631,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="23" y="205" width="354" height="48.5"/>
+                                                        <rect key="frame" x="23" y="205" width="354" height="49"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXh-LA-f8V">
@@ -1692,7 +1695,7 @@
                                         <connections>
                                             <outlet property="btnRetry" destination="99b-P1-HF2" id="txK-gD-o2T"/>
                                             <outlet property="imgGroup" destination="rJT-FE-btW" id="NJl-Hd-x68"/>
-                                            <outlet property="imgUserHead" destination="TuW-c0-YXj" id="uDO-8k-QwB"/>
+                                            <outlet property="imgUserHead" destination="TuW-c0-YXj" id="j3Z-EZ-iZY"/>
                                             <outlet property="lblContent" destination="3hf-I5-k11" id="6Hj-EZ-YMy"/>
                                             <outlet property="lblCreateDate" destination="rK9-Cu-DYU" id="TFu-r5-XIz"/>
                                             <outlet property="lblRetryNumber" destination="76k-xa-9r7" id="yOk-Nq-HzU"/>
@@ -1703,6 +1706,10 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="1q0-B8-SDZ" id="KcE-Ph-wyk"/>
+                                    <outlet property="delegate" destination="1q0-B8-SDZ" id="RVF-fj-P4E"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1737,6 +1744,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Mb5-xT-VWn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RE1-Nz-8nr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2527,7 +2535,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGN-le-xPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4177.5" y="1116"/>
+            <point key="canvasLocation" x="4177.5" y="1095"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CyA-zZ-vAr">
@@ -2631,9 +2639,9 @@
         <image name="tab-word-pre" width="28" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qXy-4n-wvH"/>
-        <segue reference="Cf6-7c-5O0"/>
         <segue reference="RI2-dy-XmB"/>
         <segue reference="fxp-1h-NEc"/>
+        <segue reference="Cf6-7c-5O0"/>
+        <segue reference="qXy-4n-wvH"/>
     </inferredMetricsTieBreakers>
 </document>

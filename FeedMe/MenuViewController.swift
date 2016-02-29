@@ -15,14 +15,14 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url : NSURL = NSURL(string:"http://121.42.195.113/feedme/images/default.jpg")!
-        let data : NSData = NSData(contentsOfURL:url)!
-        let image = UIImage(data:data, scale: 1.0)
-        if image != nil {
+        let url: NSURL = NSURL(string: "http://192.168.20.229:8080/feedme/images/default.jpg")!
+        if let data: NSData = NSData(contentsOfURL: url){
+            let image = UIImage(data: data, scale: 1.0)
             imgUserHead.image = image
-            imgUserHead.layer.masksToBounds = true
-            imgUserHead.layer.cornerRadius = 50
         }
+        imgUserHead.layer.masksToBounds = true
+        imgUserHead.layer.cornerRadius = 50
+        
     }
     
     override func didReceiveMemoryWarning() {

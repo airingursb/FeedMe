@@ -52,13 +52,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 print("验证成功")
                 let request = HTTPTask()
                 let params: Dictionary<String,AnyObject> = ["userAccount": self.txtUserPhone.text!, "userPassword": self.txtPassword.text!]
-                    request.POST("http://121.42.195.113/feedme/register.action", parameters: params, completionHandler: {(response: HTTPResponse) in
+                    request.POST("http://192.168.20.229:8080/feedme/register.action", parameters: params, completionHandler: {(response: HTTPResponse) in
                     if let res: AnyObject = response.responseObject {
                         let json = Response(JSONDecoder(res))
                         print("result: \(json.result!)")
                         if (json.result == 1) {
                             print("注册成功")
-                            self.performSegueWithIdentifier("RegisterSegue", sender: self)
+                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                                self.performSegueWithIdentifier("RegisterSegue", sender: self)
+                            })
                         } else {
                             print("注册失败")
                         }

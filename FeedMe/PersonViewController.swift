@@ -155,11 +155,12 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
             btnPickImage.titleLabel?.textAlignment = .Left
             btnPickImage.titleLabel?.font = UIFont(name: "System", size: 11)
             btnPickImage.setTitleColor(UIColor.grayColor(), forState: .Normal)
-            btnPickImage.addTarget(self,action:Selector("pickImage"),forControlEvents:UIControlEvents.TouchUpInside)
-            let url : NSURL = NSURL(string: self.userHead)!
-            let data : NSData = NSData(contentsOfURL:url)!
-            let image = UIImage(data: data, scale: 1.0)
-            imageView.image = image
+            btnPickImage.addTarget(self,action: Selector("pickImage"), forControlEvents: UIControlEvents.TouchUpInside)
+            let url: NSURL = NSURL(string: self.userHead)!
+            if let data: NSData = NSData(contentsOfURL: url) {
+                let image = UIImage(data: data, scale: 1.0)
+                imageView.image = image
+            }
             imageView.layer.masksToBounds = true
             imageView.layer.cornerRadius = 50
             cell.addSubview(btnPickImage)
@@ -179,20 +180,20 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
             return cell
         } else if indexPath.row == 2 {
             cell.lblTitle?.text = "性别"
-            imgSexMale = UIImageView(image:UIImage(named:"male"))
+            imgSexMale = UIImageView(image: UIImage(named: "male"))
             imgSexMale.frame = CGRectMake(95, 25, 16, 16)
-            imgSexFemale = UIImageView(image:UIImage(named:"female"))
+            imgSexFemale = UIImageView(image:UIImage(named: "female"))
             imgSexFemale.frame = CGRectMake(195, 25, 12.5, 17)
             
             btnMale = UIButton(frame: CGRectMake(125, 25, 20, 20))
             btnMale.setTitle("男", forState: UIControlState.Normal)
             btnMale.setTitleColor(UIColor.grayColor(), forState: .Normal)
-            btnMale.addTarget(self,action:Selector("selectMale"),forControlEvents:UIControlEvents.TouchUpInside)
+            btnMale.addTarget(self,action: Selector("selectMale"), forControlEvents: UIControlEvents.TouchUpInside)
             
             btnFemale = UIButton(frame: CGRectMake(225, 25, 20, 20))
             btnFemale.setTitle("女", forState: UIControlState.Normal)
             btnFemale.setTitleColor(UIColor.grayColor(), forState: .Normal)
-            btnFemale.addTarget(self, action:Selector("selectFemale"), forControlEvents:UIControlEvents.TouchUpInside)
+            btnFemale.addTarget(self, action: Selector("selectFemale"), forControlEvents: UIControlEvents.TouchUpInside)
             
             cell.addSubview(btnMale)
             cell.addSubview(btnFemale)
@@ -204,7 +205,7 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
             btnDate = UIButton(frame: CGRectMake(85, 25, 120, 20))
             btnDate.setTitle(dateStr, forState: .Normal)
             btnDate.setTitleColor(UIColor.grayColor(), forState: .Normal)
-            btnDate.addTarget(self, action:Selector("showDate"), forControlEvents:UIControlEvents.TouchUpInside)
+            btnDate.addTarget(self, action: Selector("showDate"), forControlEvents: UIControlEvents.TouchUpInside)
             cell.addSubview(btnDate)
             return cell
         } else {
@@ -256,7 +257,7 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
         do {
             let request = HTTPTask()
             
-            request.POST("http://121.42.195.113/feedme/upload_head.action", parameters:  ["upload": HTTPUpload(data: data, fileName: fileName, mimeType: mimeType)], completionHandler: {(response: HTTPResponse) in
+            request.POST("http://192.168.20.229:8080/feedme/upload_head.action", parameters:  ["upload": HTTPUpload(data: data, fileName: fileName, mimeType: mimeType)], completionHandler: {(response: HTTPResponse) in
                 if let res: AnyObject = response.responseObject {
                     let json = Response1(JSONDecoder(res))
                     if (json.result == 1) {
@@ -337,7 +338,7 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
             "userPersonality": self.txtUserSign.text!
         ]
         
-        request.POST("http://121.42.195.113/feedme/update_user_info.action", parameters: params, completionHandler: {(response: HTTPResponse) in
+        request.POST("http://192.168.20.229:8080/feedme/update_user_info.action", parameters: params, completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Response2(JSONDecoder(res))
                 if (json.result == 1) {

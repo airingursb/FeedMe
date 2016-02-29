@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class GroupViewController: UIViewController {
+class GroupViewController: UITableViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -26,4 +27,32 @@ class GroupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 261.5
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("GroupListCell", forIndexPath: indexPath) as! GroupListCell
+        return cell
+    }
+    
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        self.itemNum = indexPath.row
+//        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+//        
+//        self.performSegueWithIdentifier("TalkDetailSegue", sender: itemNum)
+//    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "TalkDetailSegue" {
+//            let controller = segue.destinationViewController as! TalkDetailController
+//            //controller.itemString = sender as? String
+//            controller.itemNum = self.itemNum
+//            
+//        }
+//    }
 }
