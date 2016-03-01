@@ -46,13 +46,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func register() {
+        let config = ConfigUtil()
+        let register_url = config.host! + "/register.action"
         SMS_SDK.commitVerifyCode(txtCode.text, result: {
             (state: SMS_ResponseState) in
             if (state.rawValue == 1) {
                 print("验证成功")
                 let request = HTTPTask()
                 let params: Dictionary<String,AnyObject> = ["userAccount": self.txtUserPhone.text!, "userPassword": self.txtPassword.text!]
-                    request.POST("http://192.168.20.229:8080/feedme/register.action", parameters: params, completionHandler: {(response: HTTPResponse) in
+                    request.POST(register_url, parameters: params, completionHandler: {(response: HTTPResponse) in
                     if let res: AnyObject = response.responseObject {
                         let json = Response(JSONDecoder(res))
                         print("result: \(json.result!)")

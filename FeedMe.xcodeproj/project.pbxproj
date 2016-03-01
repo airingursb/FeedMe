@@ -84,6 +84,7 @@
 		9DAB0CC71C5DD10A00142050 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CC51C5DD10A00142050 /* PersonViewController.swift */; };
 		9DAB0CCC1C5DDDB700142050 /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */; };
 		9DAB0CCD1C5DDDB700142050 /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */; };
+		9DC012481C858B3300A89466 /* ConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC012471C858B3300A89466 /* ConfigUtil.swift */; };
 		F89AD48C7949C9F48913029F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7722B83EFFD365E65427CB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,7 @@
 		9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupViewController.swift; path = FeedMe/GroupViewController.swift; sourceTree = "<group>"; };
 		9DAB0CC51C5DD10A00142050 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonViewController.swift; path = FeedMe/PersonViewController.swift; sourceTree = "<group>"; };
 		9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersonInfoCell.swift; path = FeedMe/PersonInfoCell.swift; sourceTree = "<group>"; };
+		9DC012471C858B3300A89466 /* ConfigUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigUtil.swift; path = FeedMe/ConfigUtil.swift; sourceTree = "<group>"; };
 		B6CAB54B3DE61B65C189D05D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -376,6 +378,7 @@
 			children = (
 				9D9ACFA71C607DCF00AD27D6 /* DatePickerViewController.swift */,
 				9D6075781C6305E1001B87AC /* DataUtil.swift */,
+				9DC012471C858B3300A89466 /* ConfigUtil.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				9DAB0CC61C5DD10A00142050 /* PersonViewController.swift in Sources */,
 				9D29D9921C4A4726006931F2 /* RegisterViewController.swift in Sources */,
 				9D6075701C608C5F001B87AC /* GroupListCell.swift in Sources */,
+				9DC012481C858B3300A89466 /* ConfigUtil.swift in Sources */,
 				9D6075741C6301B4001B87AC /* User+CoreDataProperties.swift in Sources */,
 				9D6C1E961C4F1F1D00A71384 /* MainWordViewController.swift in Sources */,
 				9D6C1E981C4F650C00A71384 /* LearnViewController.swift in Sources */,

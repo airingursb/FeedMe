@@ -111,9 +111,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let request = HTTPTask()
         let params: Dictionary<String,AnyObject> = ["userAccount": txtUserAccount.text!, "userPassword": txtUserPassword.text!]
-        //let params2: Dictionary<String,AnyObject> = ["username": "airing", "password": "123"]
         
-        request.POST("http://192.168.20.229:8080/feedme/login.action", parameters: params, completionHandler: {(response: HTTPResponse) in
+        let config = ConfigUtil()
+        let login_url = config.host! + "/login.action"
+        
+        request.POST(login_url , parameters: params, completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Response(JSONDecoder(res))
                 if (json.result == 1) {

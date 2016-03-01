@@ -15,7 +15,9 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url: NSURL = NSURL(string: "http://192.168.20.229:8080/feedme/images/default.jpg")!
+        let config = ConfigUtil()
+        let image_url = config.host! + "/images/default.jpg"
+        let url: NSURL = NSURL(string: image_url)!
         if let data: NSData = NSData(contentsOfURL: url){
             let image = UIImage(data: data, scale: 1.0)
             imgUserHead.image = image

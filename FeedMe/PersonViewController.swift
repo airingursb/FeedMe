@@ -86,6 +86,7 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
     var dateStr: String = ""
     var userHead: String = ""
     var imageFileName: String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,11 +240,9 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
         imageView.image = image
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 50
-        
         var data: NSData
-        var mimeType: String
-        var fileName: String
-        
+        var mimeType: String = ""
+        var fileName: String = ""
         if (UIImagePNGRepresentation(image) == nil) {
             data = UIImageJPEGRepresentation(image, 1)!;
             mimeType = "image/jpeg"
@@ -257,7 +256,10 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
         do {
             let request = HTTPTask()
             
-            request.POST("http://192.168.20.229:8080/feedme/upload_head.action", parameters:  ["upload": HTTPUpload(data: data, fileName: fileName, mimeType: mimeType)], completionHandler: {(response: HTTPResponse) in
+            print(fileName)
+            let config = ConfigUtil()
+            let upload_url = config.host! + "/upload_head.action"
+            request.POST(upload_url, parameters:  ["upload": HTTPUpload(data: data, fileName: fileName, mimeType: mimeType)], completionHandler: {(response: HTTPResponse) in
                 if let res: AnyObject = response.responseObject {
                     let json = Response1(JSONDecoder(res))
                     if (json.result == 1) {
@@ -272,7 +274,23 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
         
         
         picker.dismissViewControllerAnimated(true, completion: nil)
+//        uploadHaed(data, fileName: fileName, mimeType: mimeType)
     }
+    
+//    func uploadHaed(data: NSData, fileName: String, mimeType: String) {
+//        let request = HTTPTask()
+//        request.POST("http://192.168.20.229:8080/feedme/upload_head.action", parameters:  ["upload": HTTPUpload(data: data, fileName: fileName, mimeType: mimeType)], completionHandler: {(response: HTTPResponse) in
+//            if let res: AnyObject = response.responseObject {
+//                let json = Response1(JSONDecoder(res))
+//                if (json.result == 1) {
+//                    print(json.url!)
+//                    self.imageFileName = json.url!
+//                } else {
+//                    print("error")
+//                }
+//            }
+//        })
+//    }
     
     func selectMale() {
         btnMale.setTitleColor(UIColor.blueColor(), forState: .Normal)
@@ -337,8 +355,9 @@ class PersonViewController: UITableViewController, UIImagePickerControllerDelega
             "userBirthday": self.dateStr,
             "userPersonality": self.txtUserSign.text!
         ]
-        
-        request.POST("http://192.168.20.229:8080/feedme/update_user_info.action", parameters: params, completionHandler: {(response: HTTPResponse) in
+        let config = ConfigUtil()
+        let update_url = config.host! + "/update_user_info.action"
+        request.POST(update_url, parameters: params, completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Response2(JSONDecoder(res))
                 if (json.result == 1) {
