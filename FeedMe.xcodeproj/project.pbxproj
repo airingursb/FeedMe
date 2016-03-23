@@ -61,6 +61,9 @@
 		9D7793951C49EC410084D151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D7793941C49EC410084D151 /* Assets.xcassets */; };
 		9D7793981C49EC410084D151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7793961C49EC410084D151 /* LaunchScreen.storyboard */; };
 		9D91EF9F1CA25E6400B8EBD8 /* XWSwiftRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D91EF9E1CA25E6400B8EBD8 /* XWSwiftRefresh.framework */; };
+		9D91EFA11CA29F5D00B8EBD8 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91EFA01CA29F5D00B8EBD8 /* GroupDetailViewController.swift */; };
+		9D91EFA31CA2A0C000B8EBD8 /* GroupDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91EFA21CA2A0C000B8EBD8 /* GroupDetailCell.swift */; };
+		9D91EFA51CA2A27E00B8EBD8 /* GroupTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91EFA41CA2A27E00B8EBD8 /* GroupTitleCell.swift */; };
 		9D95B5481C508BAF00FDA270 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5381C508BAF00FDA270 /* TencentOpenAPI.framework */; };
 		9D95B5491C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D95B5391C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		9D95B54A1C508BAF00FDA270 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B53B1C508BAF00FDA270 /* libWeChatSDK.a */; };
@@ -140,6 +143,9 @@
 		9D7793971C49EC410084D151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D7793991C49EC410084D151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D91EF9E1CA25E6400B8EBD8 /* XWSwiftRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XWSwiftRefresh.framework; path = "Pods/../build/Debug-iphoneos/XWSwiftRefresh.framework"; sourceTree = "<group>"; };
+		9D91EFA01CA29F5D00B8EBD8 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupDetailViewController.swift; path = FeedMe/GroupDetailViewController.swift; sourceTree = "<group>"; };
+		9D91EFA21CA2A0C000B8EBD8 /* GroupDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupDetailCell.swift; path = FeedMe/GroupDetailCell.swift; sourceTree = "<group>"; };
+		9D91EFA41CA2A27E00B8EBD8 /* GroupTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupTitleCell.swift; path = FeedMe/GroupTitleCell.swift; sourceTree = "<group>"; };
 		9D95B5381C508BAF00FDA270 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		9D95B5391C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		9D95B53B1C508BAF00FDA270 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -248,8 +254,9 @@
 				9D6C1E951C4F1F1D00A71384 /* MainWordViewController.swift */,
 				9D6C1E971C4F650C00A71384 /* LearnViewController.swift */,
 				9D95B55A1C52186700FDA270 /* MenuViewController.swift */,
-				9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */,
 				9DAB0CC51C5DD10A00142050 /* PersonViewController.swift */,
+				9DAB0CAC1C5B40F200142050 /* GroupViewController.swift */,
+				9D91EFA01CA29F5D00B8EBD8 /* GroupDetailViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -391,6 +398,8 @@
 			children = (
 				9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */,
 				9D60756F1C608C5F001B87AC /* GroupListCell.swift */,
+				9D91EFA21CA2A0C000B8EBD8 /* GroupDetailCell.swift */,
+				9D91EFA41CA2A27E00B8EBD8 /* GroupTitleCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -601,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7793901C49EC410084D151 /* ViewController.swift in Sources */,
+				9D91EFA11CA29F5D00B8EBD8 /* GroupDetailViewController.swift in Sources */,
 				9D77938E1C49EC410084D151 /* AppDelegate.swift in Sources */,
 				9D29D9941C4A4750006931F2 /* LoginViewController.swift in Sources */,
 				9D73ED891C54A5CC00A758E3 /* FeedMe.xcdatamodeld in Sources */,
@@ -611,7 +621,9 @@
 				9D6075701C608C5F001B87AC /* GroupListCell.swift in Sources */,
 				9DC012481C858B3300A89466 /* ConfigUtil.swift in Sources */,
 				9D6075741C6301B4001B87AC /* User+CoreDataProperties.swift in Sources */,
+				9D91EFA31CA2A0C000B8EBD8 /* GroupDetailCell.swift in Sources */,
 				9D6C1E961C4F1F1D00A71384 /* MainWordViewController.swift in Sources */,
+				9D91EFA51CA2A27E00B8EBD8 /* GroupTitleCell.swift in Sources */,
 				9D6C1E981C4F650C00A71384 /* LearnViewController.swift in Sources */,
 				9D95B55B1C52186700FDA270 /* MenuViewController.swift in Sources */,
 				9D6075791C6305E1001B87AC /* DataUtil.swift in Sources */,

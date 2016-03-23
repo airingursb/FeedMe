@@ -1,8 +1,8 @@
 //
-//  GroupViewController.swift
+//  GroupDetailViewController.swift
 //  FeedMe
 //
-//  Created by Airing on 16/1/29.
+//  Created by Airing on 16/3/23.
 //  Copyright © 2016年 Airing. All rights reserved.
 //
 
@@ -12,14 +12,13 @@ import JSONJoy
 import SwiftHTTP
 import XWSwiftRefresh
 
-class GroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     
     var userIds: Array<Int> = []
     var userNames: Array<String> = []
     var createTimes: Array<String> = []
-    var replyNumbers: Array<Int> = []
     var groupImages: Array<String> = []
     var contents: Array<String> = []
     var count: Int = 0
@@ -29,7 +28,6 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         var userId: Int
         var userName: String
         var createTime: String
-        var replyNumber: Int
         var groupImage: String
         var content: String
         
@@ -37,7 +35,6 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             userId = decoder["userId"].integer!
             userName = decoder["userName"].string!
             createTime = decoder["discussCreateTime"].string!
-            replyNumber = decoder["discussReplyNum"].integer!
             groupImage = decoder["discussImage"].string!
             content = decoder["discussContent"].string!
         }
@@ -55,18 +52,9 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
     }
-
-    
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.getDiscuss(self.pageNumber)
             dispatch_async(dispatch_get_main_queue(), {
@@ -97,7 +85,6 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
                         self.userIds.append(json.groups[i].userId)
                         self.userNames.append(json.groups[i].userName)
                         self.createTimes.append(json.groups[i].createTime)
-                        self.replyNumbers.append(json.groups[i].replyNumber)
                         self.groupImages.append(json.groups[i].groupImage)
                         self.contents.append(json.groups[i].content)
                         self.count++
@@ -121,40 +108,35 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("GroupTitleCell", forIndexPath: indexPath) as! GroupTitleCell
+            
+            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
+            cell.lblUserName.text = self.userNames[indexPath.row]
+            cell.txtContent.text = self.contents[indexPath.row]
+            cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
+            cell.lblCreateTime.text = self.createTimes[indexPath.row]
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailCell", forIndexPath: indexPath) as! GroupDetailCell
+            
+            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
+            cell.lblUserName.text = self.userNames[indexPath.row]
+            cell.txtContent.text = self.contents[indexPath.row]
+            cell.lblCreateTime.text = self.createTimes[indexPath.row]
+            
+            return cell
+        }
+    }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 261.5
+        return 120
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("GroupListCell", forIndexPath: indexPath) as! GroupListCell
-        
-            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
-            cell.lblUserName.text = self.userNames[indexPath.row]
-            cell.lblContent.text = self.contents[indexPath.row]
-            cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
-            cell.lblCreateDate.text = self.createTimes[indexPath.row]
-            cell.lblRetryNumber.text = String(self.replyNumbers[indexPath.row])
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //self.itemNum = indexPath.row
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        
-        self.performSegueWithIdentifier("GroupDetailSegue", sender: nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "GroupDetailSegue" {
-            let controller = segue.destinationViewController as! GroupDetailViewController
-            //controller.itemString = sender as? String
-            //controller.itemNum = self.itemNum
-            
-        }
     }
 }
