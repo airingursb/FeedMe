@@ -10,8 +10,20 @@ import UIKit
 import CoreData
 import JSONJoy
 import SwiftHTTP
+import XWSwiftRefresh
 
 class GroupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var tableview: UITableView!
+    
+    var userIds: Array<Int> = []
+    var userNames: Array<String> = []
+    var createTimes: Array<String> = []
+    var replyNumbers: Array<Int> = []
+    var groupImages: Array<String> = []
+    var contents: Array<String> = []
+    var count: Int = 0
+    var pageNumber: Int = 1
     
     struct Group {
         var userId: Int
@@ -21,7 +33,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         var groupImage: String
         var content: String
         
-        init(_ decoder: JSONDecoder) throws {
+        init(_ decoder: JSONDecoder) {
             userId = decoder["userId"].integer!
             userName = decoder["userName"].string!
             createTime = decoder["discussCreateTime"].string!
@@ -32,15 +44,14 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     struct Groups {
-        var result: Int
+        var result: Int!
         var groups = [Group]()
         
         init(_ decoder: JSONDecoder) {
             result = decoder["result"].integer!
-            //guard let addrs = decoder["groups"].array else {throw JSONError.WrongType}
             let addrs = decoder["dataList"].array
             for addrDecoder in addrs! {
-                try? groups.append(Group(addrDecoder))
+                groups.append(Group(addrDecoder))
             }
         }
     }
@@ -56,6 +67,24 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            self.getDiscuss(self.pageNumber)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.tableview.reloadData()
+                print(self.count)
+            });
+        });
+        
+        
+        self.tableview.tableFooterView = UIView()
+        self.tableview.footerView = XWRefreshAutoNormalFooter(target: self, action: "downPlullLoadData")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func getDiscuss(pageNumber: Int) {
         let request = HTTPTask()
         let config = ConfigUtil()
         let discuss_url = config.host! + "/discuss_list.action"
@@ -64,16 +93,22 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let json = Groups(JSONDecoder(res))
                 if (json.result == 1) {
                     print(json.groups[1].userName)
+                    for(var i = 0; i < 10; i++) {
+                        self.userIds.append(json.groups[i].userId)
+                        self.userNames.append(json.groups[i].userName)
+                        self.createTimes.append(json.groups[i].createTime)
+                        self.replyNumbers.append(json.groups[i].replyNumber)
+                        self.groupImages.append(json.groups[i].groupImage)
+                        self.contents.append(json.groups[i].content)
+                        self.count++
+                        self.tableview.reloadData()
+                    }
+                    self.pageNumber++
                 } else {
                     print("error")
                 }
             }
         })
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -87,13 +122,12 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupListCell", forIndexPath: indexPath) as! GroupListCell
         
-//        cell.imgUserHead?.image = UIImage(named: userHeads[indexPath.row])
-//        cell.lblUserName.text = userNames[indexPath.row]
-//        cell.lblContent.text = contents[indexPath.row]
-//        cell.imgGroup?.image = UIImage(named: contentsOfImage[indexPath.row])
-//        cell.lblCreateDate.text = publicDate[indexPath.row]
-//        cell.lblRetryNumber.text = retryNumber[indexPath.row]
-        //cell.btnRetry?.image = UIImage(named: "icon-comment")
+            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
+            cell.lblUserName.text = self.userNames[indexPath.row]
+            cell.lblContent.text = self.contents[indexPath.row]
+            cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
+            cell.lblCreateDate.text = self.createTimes[indexPath.row]
+            cell.lblRetryNumber.text = String(self.replyNumbers[indexPath.row])
         
         return cell
     }

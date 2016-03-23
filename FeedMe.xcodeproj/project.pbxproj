@@ -60,6 +60,7 @@
 		9D7793931C49EC410084D151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7793911C49EC410084D151 /* Main.storyboard */; };
 		9D7793951C49EC410084D151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D7793941C49EC410084D151 /* Assets.xcassets */; };
 		9D7793981C49EC410084D151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7793961C49EC410084D151 /* LaunchScreen.storyboard */; };
+		9D91EF9F1CA25E6400B8EBD8 /* XWSwiftRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D91EF9E1CA25E6400B8EBD8 /* XWSwiftRefresh.framework */; };
 		9D95B5481C508BAF00FDA270 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B5381C508BAF00FDA270 /* TencentOpenAPI.framework */; };
 		9D95B5491C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D95B5391C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		9D95B54A1C508BAF00FDA270 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D95B53B1C508BAF00FDA270 /* libWeChatSDK.a */; };
@@ -85,7 +86,7 @@
 		9DAB0CCC1C5DDDB700142050 /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */; };
 		9DAB0CCD1C5DDDB700142050 /* PersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0CCB1C5DDDB700142050 /* PersonInfoCell.swift */; };
 		9DC012481C858B3300A89466 /* ConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC012471C858B3300A89466 /* ConfigUtil.swift */; };
-		F89AD48C7949C9F48913029F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7722B83EFFD365E65427CB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F89AD48C7949C9F48913029F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7722B83EFFD365E65427CB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		9D7793941C49EC410084D151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D7793971C49EC410084D151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D7793991C49EC410084D151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D91EF9E1CA25E6400B8EBD8 /* XWSwiftRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XWSwiftRefresh.framework; path = "Pods/../build/Debug-iphoneos/XWSwiftRefresh.framework"; sourceTree = "<group>"; };
 		9D95B5381C508BAF00FDA270 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		9D95B5391C508BAF00FDA270 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		9D95B53B1C508BAF00FDA270 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D91EF9F1CA25E6400B8EBD8 /* XWSwiftRefresh.framework in Frameworks */,
 				9D73ED8B1C54A70A00A758E3 /* CoreData.framework in Frameworks */,
 				9D95B5591C508BFF00FDA270 /* libsqlite3.tbd in Frameworks */,
 				9D95B5571C508BEA00FDA270 /* JavaScriptCore.framework in Frameworks */,
@@ -395,6 +398,7 @@
 		EF30A5FD1EA4646AD739D04E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D91EF9E1CA25E6400B8EBD8 /* XWSwiftRefresh.framework */,
 				9D2DCFB11C575A3600B39CD5 /* JSONJoy.framework */,
 				9D2DCFB21C575A3600B39CD5 /* Pods.framework */,
 				9D2DCFB31C575A3600B39CD5 /* SwiftHTTP.framework */,
@@ -802,6 +806,7 @@
 					"$(PROJECT_DIR)/FeedMe/SMS_SDK",
 					"$(PROJECT_DIR)/libraries/extends/QQSDK",
 					"$(PROJECT_DIR)/libraries",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = FeedMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -828,6 +833,7 @@
 					"$(PROJECT_DIR)/FeedMe/SMS_SDK",
 					"$(PROJECT_DIR)/libraries/extends/QQSDK",
 					"$(PROJECT_DIR)/libraries",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = FeedMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
