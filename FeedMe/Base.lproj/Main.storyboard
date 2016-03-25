@@ -597,7 +597,7 @@
                                     <constraint firstAttribute="width" constant="210" id="bdy-5f-UnF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="PvJ-NF-f96"/>
@@ -648,7 +648,7 @@
                                     <constraint firstAttribute="width" constant="210" id="NcT-T6-yEw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Kke-y1-Upe"/>
@@ -1586,7 +1586,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuI-MV-suZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5797.5" y="3090.75"/>
+            <point key="canvasLocation" x="5778" y="3209.25"/>
         </scene>
         <!--Group-->
         <scene sceneID="IcS-J9-PkT">
@@ -1725,6 +1725,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="asR-lv-jFr">
                         <barButtonItem key="leftBarButtonItem" image="setting" id="vZy-lG-poK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jQL-4m-ubQ">
+                            <connections>
+                                <segue destination="uqd-6i-A8Q" kind="show" id="UAT-tP-Zoy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="vZy-lG-poK" id="cHp-H2-KBc"/>
@@ -1736,7 +1741,7 @@
             </objects>
             <point key="canvasLocation" x="4693.5" y="2389.5"/>
         </scene>
-        <!--Group Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="bKI-7Y-Bh0">
             <objects>
                 <viewController id="8o1-Sw-l38" customClass="GroupDetailViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -1752,7 +1757,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="302" id="7L1-vd-w0A" customClass="GroupTitleCell" customModule="FeedMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupTitleCell" rowHeight="302" id="7L1-vd-w0A" customClass="GroupTitleCell" customModule="FeedMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7L1-vd-w0A" id="LVH-wZ-sln">
@@ -1826,7 +1831,7 @@
                                             <outlet property="txtContent" destination="G1f-zc-MTP" id="Soy-uV-2Ng"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="a6u-jh-kVd" customClass="GroupDetailCell" customModule="FeedMe" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GroupDetailCell" rowHeight="161" id="a6u-jh-kVd" customClass="GroupDetailCell" customModule="FeedMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a6u-jh-kVd" id="jp0-FM-9XK">
@@ -1893,7 +1898,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="736"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="8o1-Sw-l38" id="Ovx-6U-xZc"/>
@@ -1913,6 +1918,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Detail" id="jT9-7S-M99">
+                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="CV0-5m-ZT4">
+                            <connections>
+                                <segue destination="w0S-Bj-DIG" kind="show" id="pj8-pO-vBb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="PXX-c8-e7h" id="OBC-Vp-SrW"/>
                     </connections>
@@ -1920,6 +1932,140 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MdH-1h-lrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5547" y="2389.5"/>
+        </scene>
+        <!--New Group-->
+        <scene sceneID="Mtl-84-S77">
+            <objects>
+                <viewController id="uqd-6i-A8Q" customClass="GroupAddViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DHI-Sy-NrB"/>
+                        <viewControllerLayoutGuide type="bottom" id="rdP-ZM-ahh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nm1-v6-Jz5">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please Input the Group's Content." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ihI-7I-mfW">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uqd-6i-A8Q" id="UYA-4l-ZQr"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ihI-7I-mfW" secondAttribute="trailing" constant="-20" id="gcZ-bq-3vl"/>
+                            <constraint firstItem="rdP-ZM-ahh" firstAttribute="top" secondItem="ihI-7I-mfW" secondAttribute="bottom" id="gqe-Oi-I7I"/>
+                            <constraint firstItem="ihI-7I-mfW" firstAttribute="top" secondItem="nm1-v6-Jz5" secondAttribute="topMargin" id="uK8-Dg-cah">
+                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                            </constraint>
+                            <constraint firstItem="ihI-7I-mfW" firstAttribute="leading" secondItem="nm1-v6-Jz5" secondAttribute="leadingMargin" constant="-20" id="ucg-gC-hEh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ihI-7I-mfW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="gcZ-bq-3vl"/>
+                                <exclude reference="uK8-Dg-cah"/>
+                                <exclude reference="ucg-gC-hEh"/>
+                                <exclude reference="gqe-Oi-I7I"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ihI-7I-mfW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="gcZ-bq-3vl"/>
+                                <include reference="uK8-Dg-cah"/>
+                                <include reference="ucg-gC-hEh"/>
+                                <include reference="gqe-Oi-I7I"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Group" id="EoV-i1-07J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="t4v-vJ-qbO">
+                            <connections>
+                                <action selector="addNewGroup:" destination="uqd-6i-A8Q" id="2nE-pS-xTo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="txtContent" destination="ihI-7I-mfW" id="MGj-Ze-KRl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Be5-mY-TXW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6366" y="1746.75"/>
+        </scene>
+        <!--Reply-->
+        <scene sceneID="UIM-ND-ZsU">
+            <objects>
+                <viewController id="w0S-Bj-DIG" customClass="GroupReplyViewController" customModule="FeedMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zdL-dD-qOs"/>
+                        <viewControllerLayoutGuide type="bottom" id="T80-oH-pWT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RJH-qF-fIy">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="M73-lb-CZ0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="w0S-Bj-DIG" id="NEn-Vy-z7o"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M73-lb-CZ0" firstAttribute="leading" secondItem="RJH-qF-fIy" secondAttribute="leadingMargin" constant="-20" id="VLE-h6-YeV"/>
+                            <constraint firstItem="M73-lb-CZ0" firstAttribute="top" secondItem="zdL-dD-qOs" secondAttribute="bottom" id="fve-TJ-iPU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M73-lb-CZ0" secondAttribute="trailing" constant="-20" id="jzD-5W-KSK"/>
+                            <constraint firstItem="T80-oH-pWT" firstAttribute="top" secondItem="M73-lb-CZ0" secondAttribute="bottom" id="xjy-yp-sQ5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="M73-lb-CZ0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="VLE-h6-YeV"/>
+                                <exclude reference="fve-TJ-iPU"/>
+                                <exclude reference="jzD-5W-KSK"/>
+                                <exclude reference="xjy-yp-sQ5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="M73-lb-CZ0"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="VLE-h6-YeV"/>
+                                <include reference="fve-TJ-iPU"/>
+                                <include reference="jzD-5W-KSK"/>
+                                <include reference="xjy-yp-sQ5"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reply" id="6of-dL-7N5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Wpb-YP-EAK">
+                            <connections>
+                                <action selector="addReply:" destination="w0S-Bj-DIG" id="epS-cu-iK2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="txtContent" destination="M73-lb-CZ0" id="eXY-aj-5TZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jb6-T9-JJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6366" y="2389.5"/>
         </scene>
         <!--Learn-->
         <scene sceneID="DLN-jx-tiw">

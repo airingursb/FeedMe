@@ -18,6 +18,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var userIds: Array<Int> = []
     var userNames: Array<String> = []
+    var discussIds: Array<Int> = []
     var createTimes: Array<String> = []
     var replyNumbers: Array<Int> = []
     var groupImages: Array<String> = []
@@ -25,9 +26,13 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     var count: Int = 0
     var pageNumber: Int = 1
     
+    var discussId: Int = 0
+    var dataUtil: DataUtil = DataUtil()
+
     struct Group {
         var userId: Int
         var userName: String
+        var discussId: Int
         var createTime: String
         var replyNumber: Int
         var groupImage: String
@@ -36,6 +41,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         init(_ decoder: JSONDecoder) {
             userId = decoder["userId"].integer!
             userName = decoder["userName"].string!
+            discussId = decoder["discussId"].integer!
             createTime = decoder["discussCreateTime"].string!
             replyNumber = decoder["discussReplyNum"].integer!
             groupImage = decoder["discussImage"].string!
@@ -45,10 +51,12 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     struct Groups {
         var result: Int!
+        var discussNum: Int!
         var groups = [Group]()
         
         init(_ decoder: JSONDecoder) {
             result = decoder["result"].integer!
+            discussNum = decoder["discussNum"].integer!
             let addrs = decoder["dataList"].array
             for addrDecoder in addrs! {
                 groups.append(Group(addrDecoder))
@@ -88,20 +96,23 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         let request = HTTPTask()
         let config = ConfigUtil()
         let discuss_url = config.host! + "/discuss_list.action"
-        request.POST(discuss_url, parameters: ["page": 1], completionHandler: {(response: HTTPResponse) in
+        request.POST(discuss_url, parameters: ["page": self.pageNumber], completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Groups(JSONDecoder(res))
                 if (json.result == 1) {
                     print(json.groups[1].userName)
-                    for(var i = 0; i < 10; i++) {
-                        self.userIds.append(json.groups[i].userId)
-                        self.userNames.append(json.groups[i].userName)
-                        self.createTimes.append(json.groups[i].createTime)
-                        self.replyNumbers.append(json.groups[i].replyNumber)
-                        self.groupImages.append(json.groups[i].groupImage)
-                        self.contents.append(json.groups[i].content)
-                        self.count++
-                        self.tableview.reloadData()
+                    if json.discussNum != 0 {
+                        for(var i = 0; i < json.discussNum; i++) {
+                            self.userIds.append(json.groups[i].userId)
+                            self.userNames.append(json.groups[i].userName)
+                            self.discussIds.append(json.groups[i].discussId)
+                            self.createTimes.append(json.groups[i].createTime)
+                            self.replyNumbers.append(json.groups[i].replyNumber)
+                            self.groupImages.append(json.groups[i].groupImage)
+                            self.contents.append(json.groups[i].content)
+                            self.count++
+                            self.tableview.reloadData()
+                        }
                     }
                     self.pageNumber++
                 } else {
@@ -132,29 +143,30 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupListCell", forIndexPath: indexPath) as! GroupListCell
         
-            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
-            cell.lblUserName.text = self.userNames[indexPath.row]
-            cell.lblContent.text = self.contents[indexPath.row]
-            cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
-            cell.lblCreateDate.text = self.createTimes[indexPath.row]
-            cell.lblRetryNumber.text = String(self.replyNumbers[indexPath.row])
-        
+        cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
+        cell.lblUserName.text = self.userNames[indexPath.row]
+        cell.lblContent.text = self.contents[indexPath.row]
+        cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
+        cell.lblCreateDate.text = self.createTimes[indexPath.row]
+        cell.lblRetryNumber.text = String(self.replyNumbers[indexPath.row])
+    
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //self.itemNum = indexPath.row
+        self.discussId = self.discussIds[indexPath.row]
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         
-        self.performSegueWithIdentifier("GroupDetailSegue", sender: nil)
+        self.performSegueWithIdentifier("GroupDetailSegue", sender: discussId)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GroupDetailSegue" {
             let controller = segue.destinationViewController as! GroupDetailViewController
             //controller.itemString = sender as? String
-            //controller.itemNum = self.itemNum
-            
+            controller.discussId = self.discussId
+            print("discussId:\(self.discussId)")
+            //self.dataUtil.cacheSetInt("discussId", value: self.discussId)
         }
     }
 }

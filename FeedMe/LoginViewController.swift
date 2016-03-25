@@ -188,6 +188,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                 } else {
+                    print("login error")
                     let alertController = UIAlertController(title: "FeedMe",
                         message: "Please Check Your Message.", preferredStyle: UIAlertControllerStyle.Alert)
                     let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
