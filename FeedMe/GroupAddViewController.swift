@@ -13,8 +13,8 @@ import JSONJoy
 class GroupAddViewController: UIViewController {
     
     struct Response {
-        var result: Int
-        var discussId: Int
+        var result: Int!
+        var discussId: Int!
         
         init(_ decoder: JSONDecoder) {
             result = decoder["result"].integer!

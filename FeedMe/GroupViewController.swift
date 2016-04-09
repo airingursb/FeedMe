@@ -75,6 +75,16 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        let mainColor = UIColor(red: 0.25, green: 0.54, blue: 0.99, alpha: 1)
+        self.navigationController?.navigationBar.barTintColor = mainColor
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        let navigationTitleAttribute : NSDictionary = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName)
+        self.navigationController?.navigationBar.titleTextAttributes = navigationTitleAttribute as? [String : AnyObject]
+        
+        // 定义所有子页面返回按钮的名称
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             self.getDiscuss(self.pageNumber)
             dispatch_async(dispatch_get_main_queue(), {
@@ -145,7 +155,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
         cell.lblUserName.text = self.userNames[indexPath.row]
-        cell.lblContent.text = self.contents[indexPath.row]
+        cell.txtContent.text = self.contents[indexPath.row]
         cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
         cell.lblCreateDate.text = self.createTimes[indexPath.row]
         cell.lblRetryNumber.text = String(self.replyNumbers[indexPath.row])
@@ -166,7 +176,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             //controller.itemString = sender as? String
             controller.discussId = self.discussId
             print("discussId:\(self.discussId)")
-            //self.dataUtil.cacheSetInt("discussId", value: self.discussId)
+            self.dataUtil.cacheSetInt("discussId", value: self.discussId)
         }
     }
 }

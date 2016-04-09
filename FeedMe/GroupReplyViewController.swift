@@ -13,8 +13,8 @@ import JSONJoy
 class GroupReplyViewController: UIViewController {
     
     struct Response {
-        var result: Int
-        var replyId: Int
+        var result: Int!
+        var replyId: Int!
         
         init(_ decoder: JSONDecoder) {
             result = decoder["result"].integer!
@@ -37,8 +37,14 @@ class GroupReplyViewController: UIViewController {
         request.POST(discuss_url, parameters: ["userId": self.userId, "discussId": self.discussId, "replyContent": self.txtContent.text], completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Response(JSONDecoder(res))
+                print(json)
                 if (json.result == 1) {
                     print("succeed")
+//                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+//                        self.performSegueWithIdentifier("ReplySegue", sender: self.userId)
+//                    })
+//                    let vc = GroupDetailViewController()
+//                    self.presentViewController(vc, animated: true, completion: nil)
                 } else {
                     print("error")
                 }
@@ -52,6 +58,7 @@ class GroupReplyViewController: UIViewController {
         super.viewDidLoad()
         
         self.userId = self.dataUtil.cacheGetInt("userId")
+        self.discussId = self.dataUtil.cacheGetInt("discussId")
     }
     
     override func didReceiveMemoryWarning() {

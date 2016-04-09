@@ -9,7 +9,7 @@
 import Foundation
 
 class ConfigUtil {
-    var _host: String? = "http://192.168.173.1:8080/feedme"
+    var _host: String? = "http://192.168.20.229:8080/feedme"
     
     var host: String? {
         get {

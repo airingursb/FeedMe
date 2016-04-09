@@ -34,11 +34,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var dataUtil: DataUtil = DataUtil()
     
     struct Group {
-        var userId: Int
-        var userName: String
-        var replyId: Int
-        var replyCreateTime: String
-        var replyContent: String
+        var userId: Int!
+        var userName: String!
+        var replyId: Int!
+        var replyCreateTime: String!
+        var replyContent: String!
         
         init(_ decoder: JSONDecoder) {
             userId = decoder["userId"].integer!
@@ -84,7 +84,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             });
         });
         
-        //self.discussId = self.dataUtil.cacheGetInt("discussId")
+        self.discussId = self.dataUtil.cacheGetInt("discussId")
         
         print("discussId:\(self.discussId)")
         self.tableview.tableFooterView = UIView()
@@ -99,17 +99,17 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let request = HTTPTask()
         let config = ConfigUtil()
         let discuss_url = config.host! + "/show_discuss.action"
-        request.POST(discuss_url, parameters: ["page": 1, "discussId": self.discussId], completionHandler: {(response: HTTPResponse) in
+        request.POST(discuss_url, parameters: ["page": self.pageNumber, "discussId": self.discussId], completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Groups(JSONDecoder(res))
+                print(json)
+                self.discussUserName = json.userName
+                self.discussUserHead = json.userHead
+                self.discussContent = json.discussContent
+                self.discussImage = json.discussImage
+                self.discussCreateTime = json.discussCreateTime
                 if (json.result == 1) {
-                    print(json.groups[1].userName)
                     if json.replyNum != 0 {
-                        self.discussUserName = json.userName
-                        self.discussUserHead = json.userHead
-                        self.discussContent = json.discussContent
-                        self.discussImage = json.discussImage
-                        self.discussCreateTime = json.discussCreateTime
                         for(var i = 0; i < json.replyNum; i++) {
                             self.userIds.append(json.groups[i].userId)
                             self.userNames.append(json.groups[i].userName)
@@ -121,6 +121,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                         }
                     }
                     self.pageNumber++
+                    print(self.replyContents)
                 } else {
                     print("error")
                 }
@@ -139,7 +140,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("row:\(indexPath.row)")
+        //print("row:\(indexPath.row)")
         let cell = tableView.dequeueReusableCellWithIdentifier("GroupTitleCell", forIndexPath: indexPath) as! GroupTitleCell
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("GroupTitleCell", forIndexPath: indexPath) as! GroupTitleCell
@@ -150,17 +151,21 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             cell.imgGroup?.image = UIImage(named: self.discussImage)
             cell.lblCreateTime.text = self.discussCreateTime
             
+            cell.selected = false
+            
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("GroupDetailCell", forIndexPath: indexPath) as! GroupDetailCell
             
-            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
-            cell.lblUserName.text = self.userNames[indexPath.row]
-            cell.txtContent.text = self.replyContents[indexPath.row]
-            cell.lblCreateTime.text = self.replyCreateTimes[indexPath.row]
+            cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row - 1]))
+            cell.lblUserName.text = self.userNames[indexPath.row - 1]
+            cell.txtContent.text = self.replyContents[indexPath.row - 1]
+            cell.lblCreateTime.text = self.replyCreateTimes[indexPath.row - 1]
+            
+            cell.selected = false
+
             
         }
         return cell
-
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -169,5 +174,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.count
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
     }
 }

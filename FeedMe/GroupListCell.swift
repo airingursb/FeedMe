@@ -16,6 +16,6 @@ class GroupListCell: UITableViewCell {
     @IBOutlet weak var lblRetryNumber: UILabel!
     @IBOutlet weak var btnRetry: UIButton!
     @IBOutlet weak var imgGroup: UIImageView!
-    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var txtContent: UITextView!
     
 }
