@@ -21,6 +21,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var replyCreateTimes: Array<String> = []
     var replyContents: Array<String> = []
     var replyIds: Array<Int> = []
+    var userHeads: Array<String> = []
     var count: Int = 0
     var pageNumber: Int = 1
     
@@ -39,12 +40,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         var replyId: Int!
         var replyCreateTime: String!
         var replyContent: String!
+        var userHead: String!
         
         init(_ decoder: JSONDecoder) {
             userId = decoder["userId"].integer!
             userName = decoder["userName"].string!
             replyCreateTime = decoder["replyCreateTime"].string!
             replyContent = decoder["replyContent"].string!
+            userHead = decoder["userHead"].string!
             replyId = decoder["replyId"].integer!
         }
     }
@@ -116,6 +119,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                             self.replyCreateTimes.append(json.groups[i].replyCreateTime)
                             self.replyContents.append(json.groups[i].replyContent)
                             self.replyIds.append(json.groups[i].replyId)
+                            self.userHeads.append(json.groups[i].userHead)
                             self.count++
                             self.tableview.reloadData()
                         }
@@ -160,7 +164,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             cell.lblUserName.text = self.userNames[indexPath.row - 1]
             cell.txtContent.text = self.replyContents[indexPath.row - 1]
             cell.lblCreateTime.text = self.replyCreateTimes[indexPath.row - 1]
-            
+            let user_url: NSURL = NSURL(string: self.userHeads[indexPath.row - 1])!
+            if let data: NSData = NSData(contentsOfURL: user_url){
+                let image = UIImage(data: data, scale: 1.0)
+                cell.imgUserHead.image = image
+            }
             cell.selected = false
 
             

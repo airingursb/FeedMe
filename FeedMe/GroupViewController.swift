@@ -23,6 +23,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
     var replyNumbers: Array<Int> = []
     var groupImages: Array<String> = []
     var contents: Array<String> = []
+    var userHeads: Array<String> = []
     var count: Int = 0
     var pageNumber: Int = 1
     
@@ -37,6 +38,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         var replyNumber: Int
         var groupImage: String
         var content: String
+        var userHead: String
         
         init(_ decoder: JSONDecoder) {
             userId = decoder["userId"].integer!
@@ -46,6 +48,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
             replyNumber = decoder["discussReplyNum"].integer!
             groupImage = decoder["discussImage"].string!
             content = decoder["discussContent"].string!
+            userHead = decoder["userHead"].string!
         }
     }
     
@@ -120,6 +123,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
                             self.replyNumbers.append(json.groups[i].replyNumber)
                             self.groupImages.append(json.groups[i].groupImage)
                             self.contents.append(json.groups[i].content)
+                            self.userHeads.append(json.groups[i].userHead)
                             self.count++
                             self.tableview.reloadData()
                         }
@@ -156,9 +160,19 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.imgUserHead?.image = UIImage(named: String(self.userIds[indexPath.row]))
         cell.lblUserName.text = self.userNames[indexPath.row]
         cell.txtContent.text = self.contents[indexPath.row]
-        cell.imgGroup?.image = UIImage(named: self.groupImages[indexPath.row])
         cell.lblCreateDate.text = self.createTimes[indexPath.row]
         cell.lblRetryNumber.text = String(self.replyNumbers[indexPath.row])
+        let user_url: NSURL = NSURL(string: self.userHeads[indexPath.row])!
+        if let data: NSData = NSData(contentsOfURL: user_url){
+            let image = UIImage(data: data, scale: 1.0)
+            cell.imgUserHead.image = image
+        }
+        let group_url: NSURL = NSURL(string: self.groupImages[indexPath.row])!
+        if let data: NSData = NSData(contentsOfURL: group_url){
+            let image = UIImage(data: data, scale: 1.0)
+            cell.imgGroup.image = image
+        }
+        
     
         return cell
     }

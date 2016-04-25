@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let config = ConfigUtil()
-        let image_url = config.host! + "/images/default.jpg"
+        let image_url = config.host! + "/images/1.jpg"
         let url: NSURL = NSURL(string: image_url)!
         if let data: NSData = NSData(contentsOfURL: url){
             let image = UIImage(data: data, scale: 1.0)
@@ -24,7 +24,7 @@ class MenuViewController: UIViewController {
         }
         imgUserHead.layer.masksToBounds = true
         imgUserHead.layer.cornerRadius = 50
-        
+        lblUserName.text = "王小明"
     }
     
     override func didReceiveMemoryWarning() {
