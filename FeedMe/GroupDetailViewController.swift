@@ -109,7 +109,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 self.discussUserName = json.userName
                 self.discussUserHead = json.userHead
                 self.discussContent = json.discussContent
-                self.discussImage = json.discussImage
+                self.discussImage = config.host! + json.discussImage
                 self.discussCreateTime = json.discussCreateTime
                 if (json.result == 1) {
                     if json.replyNum != 0 {
@@ -119,7 +119,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                             self.replyCreateTimes.append(json.groups[i].replyCreateTime)
                             self.replyContents.append(json.groups[i].replyContent)
                             self.replyIds.append(json.groups[i].replyId)
-                            self.userHeads.append(json.groups[i].userHead)
+                            self.userHeads.append(config.host! + json.groups[i].userHead)
                             self.count++
                             self.tableview.reloadData()
                         }

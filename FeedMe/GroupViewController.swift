@@ -112,6 +112,7 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
         request.POST(discuss_url, parameters: ["page": self.pageNumber], completionHandler: {(response: HTTPResponse) in
             if let res: AnyObject = response.responseObject {
                 let json = Groups(JSONDecoder(res))
+                print(json)
                 if (json.result == 1) {
                     print(json.groups[1].userName)
                     if json.discussNum != 0 {
@@ -121,9 +122,9 @@ class GroupViewController: UIViewController, UITableViewDataSource, UITableViewD
                             self.discussIds.append(json.groups[i].discussId)
                             self.createTimes.append(json.groups[i].createTime)
                             self.replyNumbers.append(json.groups[i].replyNumber)
-                            self.groupImages.append(json.groups[i].groupImage)
+                            self.groupImages.append(config.host! + json.groups[i].groupImage)
                             self.contents.append(json.groups[i].content)
-                            self.userHeads.append(json.groups[i].userHead)
+                            self.userHeads.append(config.host! + json.groups[i].userHead)
                             self.count++
                             self.tableview.reloadData()
                         }

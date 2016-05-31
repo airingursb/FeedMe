@@ -1647,6 +1647,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="个人设置" id="YfH-ya-xDO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="HUR-sf-58A">
+                            <connections>
+                                <segue destination="1q0-B8-SDZ" kind="show" id="nEJ-1A-Fmb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Z5X-at-4MQ">
                             <connections>
                                 <action selector="updateInfo:" destination="bhR-Qk-Ak1" id="w7v-QC-Rtw"/>
@@ -3569,6 +3574,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="RI2-dy-XmB"/>
         <segue reference="fxp-1h-NEc"/>
-        <segue reference="Cf6-7c-5O0"/>
+        <segue reference="Fzz-A2-wc2"/>
+        <segue reference="nEJ-1A-Fmb"/>
     </inferredMetricsTieBreakers>
 </document>
